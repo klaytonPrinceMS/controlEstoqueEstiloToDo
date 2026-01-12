@@ -1,0 +1,14 @@
+# Ignorar configurações do IntelliJ/PyCharm/WebStorm
+.idea/
+
+# O Git já ignora a pasta .git internamente,
+# mas se você quiser listar por segurança:
+.git/
+
+# Outros arquivos comuns que podem ser úteis ignorar:
+*.iml
+*.iws
+node_modules/
+dist/
+build/
+.vscode/
