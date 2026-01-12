@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque Profissional v3.0</title>
+    <style>
+        :root {
+            --cor-fundo: #f4f7f6;
+            --cor-primaria: #2c3e50;
+            --cor-destaque: #3498db;
+            --cor-perigo: #e74c3c;
+            --cor-sucesso: #27ae60;
+            --cor-alerta: #f39c12;
+            --cor-texto: #2c3e50;
+            --cor-borda: #dcdde1;
+            --cor-zerado: #95a5a6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container-principal {
+            width: 100%;
+            max-width: 1600px;
+        }
+
+        /* Containers de Entrada Separados */
+        .painel-controles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .container-entrada {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cor-destaque);
+        }
+
+        .container-setores {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cor-alerta);
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--cor-primaria);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-linha {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid var(--cor-borda);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        input:focus { border-color: var(--cor-destaque); box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            color: white;
+        }
+
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .btn-primario { background-color: var(--cor-destaque); }
+        .btn-alerta { background-color: var(--cor-alerta); }
+        .btn-sucesso { background-color: var(--cor-sucesso); }
+
+        /* Quadro de Setores */
+        .quadro {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            min-height: 500px;
+        }
+
+        .coluna {
+            background-color: #ebedef;
+            border-radius: 10px;
+            min-width: 300px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            max-height: 70vh;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+        }
+
+        .coluna.arrastando-sobre { border-color: var(--cor-destaque); background-color: #d6dbdf; }
+
+        .cabecalho-coluna {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cabecalho-coluna h3 { margin: 0; font-size: 1rem; }
+
+        .container-itens {
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        /* Cartões de Itens */
+        .cartao {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            cursor: grab;
+            border-left: 4px solid var(--cor-destaque);
+            transition: all 0.2s;
+        }
+
+        .cartao.zerado { border-left-color: var(--cor-zerado); opacity: 0.6; }
+        .cartao.destacado { border-color: var(--cor-perigo); box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); transform: scale(1.02); }
+
+        .info-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .nome-item { font-weight: bold; font-size: 0.95rem; }
+        .qtd-badge { background: #f1f2f6; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; font-weight: bold; }
+
+        .acoes-item { display: flex; gap: 5px; justify-content: flex-end; }
+        .btn-acao-item { padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; }
+
+        /* Modais */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center; align-items: center;
+        }
+
+        .conteudo-modal {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Toasts */
+        #container-toast { position: fixed; bottom: 20px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px; }
+        .toast { padding: 12px 20px; border-radius: 8px; color: white; font-weight: 600; animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+        .sugestoes {
+            position: absolute; top: 100%; left: 0; right: 0; background: white;
+            border: 1px solid var(--cor-borda); border-radius: 6px; z-index: 100;
+            max-height: 150px; overflow-y: auto; display: none;
+        }
+        .sugestao-item { padding: 8px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid #f1f2f6; }
+        .sugestao-item:hover { background: #f1f2f6; }
+
+        @media (max-width: 900px) {
+            .painel-controles { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container-toast"></div>
+
+    <div class="container-principal">
+        <div class="painel-controles">
+            <!-- Container de Entrada de Produtos -->
+            <div class="container-entrada">
+                <h2>📦 Entrada de Produtos</h2>
+                <div class="form-linha">
+                    <div class="campo">
+                        <label>Nome do Produto</label>
+                        <input type="text" id="nomeProduto" placeholder="Digite o nome..." oninput="tratarBusca(this.value)" onkeydown="if(event.key==='Enter') adicionarProduto()">
+                        <div id="sugestoes" class="sugestoes"></div>
+                    </div>
+                    <div class="campo" style="flex-grow: 0; width: 80px;">
+                        <label>Qtd</label>
+                        <input type="number" id="qtdProduto" value="1" min="1" onkeydown="if(event.key==='Enter') adicionarProduto()">
+                    </div>
+                    <button onclick="adicionarProduto()" class="btn-primario" id="btnAcao">Adicionar</button>
+                </div>
+            </div>
+
+            <!-- Container de Cadastro de Setores -->
+            <div class="container-setores">
+                <h2>🏢 Gestão de Setores</h2>
+                <div class="form-linha">
+                    <div class="campo">
+                        <label>Nome do Setor</label>
+                        <input type="text" id="nomeSetor" placeholder="Ex: Marketing..." onkeydown="if(event.key==='Enter') adicionarSetor()">
+                    </div>
+                    <div class="campo" style="flex-grow: 0; width: 60px;">
+                        <label>Cor</label>
+                        <input type="color" id="corSetor" value="#ebedef">
+                    </div>
+                    <button onclick="adicionarSetor()" class="btn-alerta">Criar Setor</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px; display: flex; gap: 10px; justify-content: flex-end;">
+            <select id="ordemTipo" onchange="atualizarQuadro()" style="padding: 5px;">
+                <option value="alfabetica">A-Z</option>
+                <option value="quantidade">Quantidade</option>
+                <option value="recente">Recentes</option>
+            </select>
+            <button onclick="exportarDados()" class="btn-sucesso" style="padding: 5px 15px;">Backup</button>
+            <button onclick="document.getElementById('inputImportar').click()" style="background: #7f8c8d; padding: 5px 15px;">Importar</button>
+            <input type="file" id="inputImportar" style="display: none;" accept=".json" onchange="importarDados(event)">
+        </div>
+
+        <div class="quadro" id="quadro"></div>
+    </div>
+
+    <!-- Modal Transferência -->
+    <div id="modalTransferencia" class="modal">
+        <div class="conteudo-modal">
+            <h3>Transferir Item</h3>
+            <p id="infoTransferencia" style="font-size: 0.9rem; color: #666;"></p>
+            <div class="campo">
+                <label>Quantidade a transferir:</label>
+                <input type="number" id="qtdTransferir" min="1" value="1" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button onclick="fecharModalTransferencia()" style="background: #95a5a6;">Cancelar</button>
+                <button onclick="confirmarTransferencia()" class="btn-sucesso">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let estado = {
+            setores: ['estoque', 'contabilidade', 'compras'],
+            configSetores: {
+                'estoque': { nome: '📦 Estoque Central', cor: '#ebedef' },
+                'contabilidade': { nome: '📊 Contabilidade', cor: '#ebedef' },
+                'compras': { nome: '🛒 Compras', cor: '#ebedef' }
+            },
+            itens: []
+        };
+
+        let transferenciaPendente = null;
+        let idItemDestacado = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarEstado();
+            atualizarQuadro();
+            document.getElementById('nomeProduto').focus();
+        });
+
+        function mostrarToast(msg, tipo = 'sucesso') {
+            const container = document.getElementById('container-toast');
+            const toast = document.createElement('div');
+            toast.className = `toast`;
+            toast.style.backgroundColor = tipo === 'sucesso' ? '#27ae60' : (tipo === 'erro' ? '#e74c3c' : '#f39c12');
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // --- Gestão de Produtos ---
+        function adicionarProduto() {
+            const nome = document.getElementById('nomeProduto').value.trim();
+            const qtd = parseInt(document.getElementById('qtdProduto').value);
+            if (!nome || isNaN(qtd) || qtd < 1) { mostrarToast("Dados inválidos!", "erro"); return; }
+
+            const existente = estado.itens.find(i => i.nome.toLowerCase() === nome.toLowerCase() && i.setorId === 'estoque');
+            if (existente) {
+                existente.qtd += qtd;
+                existente.dataAtu = Date.now();
+                mostrarToast(`Estoque de ${nome} atualizado!`);
+            } else {
+                estado.itens.push({ id: 'item-' + Date.now(), nome, qtd, setorId: 'estoque', dataAtu: Date.now() });
+                mostrarToast(`${nome} cadastrado com sucesso!`);
+            }
+
+            salvarEstado();
+            atualizarQuadro();
+            document.getElementById('nomeProduto').value = '';
+            document.getElementById('qtdProduto').value = '1';
+            document.getElementById('nomeProduto').focus();
+            limparDestaque();
+        }
+
+        function adicionarUnidade(id) {
+            const item = estado.itens.find(i => i.id === id);
+            if (item) {
+                item.qtd++;
+                item.dataAtu = Date.now();
+                salvarEstado();
+                atualizarQuadro();
+                mostrarToast(`+1 unidade de ${item.nome}`);
+            }
+        }
+
+        function utilizarUnidade(id) {
+            const item = estado.itens.find(i => i.id === id);
+            if (item && item.qtd > 0) {
+                item.qtd--;
+                item.dataAtu = Date.now();
+                if (item.qtd === 0 && item.setorId !== 'estoque') {
+                    estado.itens = estado.itens.filter(i => i.id !== id);
+                    mostrarToast(`${item.nome} esgotado e removido do setor.`);
+                } else {
+                    mostrarToast(`1 unidade de ${item.nome} utilizada.`);
+                }
+                salvarEstado();
+                atualizarQuadro();
+            }
+        }
+
+        // --- Gestão de Setores ---
+        function adicionarSetor() {
+            const nome = document.getElementById('nomeSetor').value.trim();
+            const cor = document.getElementById('corSetor').value;
+            if (!nome) return;
+            const id = 'setor-' + Date.now();
+            estado.setores.push(id);
+            estado.configSetores[id] = { nome, cor };
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast(`Setor ${nome} criado!`);
+            document.getElementById('nomeSetor').value = '';
+            document.getElementById('nomeSetor').focus();
+        }
+
+        function removerSetor(id) {
+            if (id === 'estoque') return;
+            const temItens = estado.itens.some(i => i.setorId === id && i.qtd > 0);
+            if (temItens) {
+                mostrarToast("Não é possível excluir um setor com itens!", "erro");
+                return;
+            }
+            estado.setores = estado.setores.filter(s => s !== id);
+            delete estado.configSetores[id];
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast("Setor removido.");
+        }
+
+        // --- Interface e Quadro ---
+        function atualizarQuadro() {
+            const quadro = document.getElementById('quadro');
+            quadro.innerHTML = '';
+            const ordem = document.getElementById('ordemTipo').value;
+
+            estado.setores.forEach(setorId => {
+                const config = estado.configSetores[setorId];
+                const col = document.createElement('div');
+                col.className = 'coluna';
+                col.style.backgroundColor = config.cor;
+                col.innerHTML = `
+                    <div class="cabecalho-coluna">
+                        <h3>${config.nome}</h3>
+                        ${setorId !== 'estoque' ? `<button onclick="removerSetor('${setorId}')" style="background:none;color:var(--cor-perigo);font-size:1.2rem;padding:0;">×</button>` : ''}
+                    </div>
+                    <div class="container-itens" ondragover="event.preventDefault(); this.parentElement.classList.add('arrastando-sobre')" ondragleave="this.parentElement.classList.remove('arrastando-sobre')" ondrop="tratarDrop(event, '${setorId}')"></div>
+                `;
+
+                const container = col.querySelector('.container-itens');
+                let itens = estado.itens.filter(i => i.setorId === setorId);
+
+                if (ordem === 'alfabetica') itens.sort((a,b) => a.nome.localeCompare(b.nome));
+                else if (ordem === 'quantidade') itens.sort((a,b) => b.qtd - a.qtd);
+                else itens.sort((a,b) => b.dataAtu - a.dataAtu);
+
+                itens.forEach(item => container.appendChild(criarCartao(item)));
+                quadro.appendChild(col);
+            });
+        }
+
+        function criarCartao(item) {
+            const cartao = document.createElement('div');
+            cartao.className = `cartao ${item.qtd === 0 ? 'zerado' : ''} ${item.id === idItemDestacado ? 'destacado' : ''}`;
+            cartao.draggable = item.qtd > 0;
+            cartao.id = item.id;
+
+            const botoesAcao = item.setorId === 'estoque'
+                ? `<button class="btn-acao-item btn-sucesso" onclick="adicionarUnidade('${item.id}')">+1</button>`
+                : `<button class="btn-acao-item btn-alerta" onclick="utilizarUnidade('${item.id}')">Utilizar</button>`;
+
+            cartao.innerHTML = `
+                <div class="info-item">
+                    <span class="nome-item">${item.nome}</span>
+                    <span class="qtd-badge">${item.qtd}</span>
+                </div>
+                <div class="acoes-item">
+                    ${botoesAcao}
+                    <button class="btn-acao-item btn-perigo" onclick="excluirItem('${item.id}')" style="background:var(--cor-perigo)">Excluir</button>
+                </div>
+            `;
+
+            cartao.ondragstart = (e) => { e.dataTransfer.setData('text', item.id); cartao.style.opacity = '0.4'; };
+            cartao.ondragend = () => cartao.style.opacity = '1';
+
+            return cartao;
+        }
+
+        // --- Lógica de Movimentação ---
+        function tratarDrop(e, setorDestinoId) {
+            e.preventDefault();
+            document.querySelectorAll('.coluna').forEach(c => c.classList.remove('arrastando-sobre'));
+            const id = e.dataTransfer.getData('text');
+            const item = estado.itens.find(i => i.id === id);
+            if (!item || item.setorId === setorDestinoId) return;
+
+            if (item.qtd > 1) {
+                transferenciaPendente = { item, setorDestinoId };
+                document.getElementById('infoTransferencia').innerText = `Transferindo ${item.nome} (Disponível: ${item.qtd})`;
+                document.getElementById('qtdTransferir').value = 1;
+                document.getElementById('qtdTransferir').max = item.qtd;
+                document.getElementById('modalTransferencia').style.display = 'flex';
+                document.getElementById('qtdTransferir').focus();
+            } else {
+                moverItem(item, setorDestinoId, 1);
+            }
+        }
+
+        function confirmarTransferencia() {
+            const qtd = parseInt(document.getElementById('qtdTransferir').value);
+            if (qtd > 0 && qtd <= transferenciaPendente.item.qtd) {
+                moverItem(transferenciaPendente.item, transferenciaPendente.setorDestinoId, qtd);
+                fecharModalTransferencia();
+            } else {
+                mostrarToast("Quantidade superior ao disponível!", "erro");
+            }
+        }
+
+        function moverItem(item, setorDestinoId, qtd) {
+            const setorOrigemId = item.setorId;
+            const existenteNoDestino = estado.itens.find(i => i.nome.toLowerCase() === item.nome.toLowerCase() && i.setorId === setorDestinoId);
+
+            if (qtd === item.qtd && setorOrigemId !== 'estoque') {
+                // Move o item completo se não for do estoque
+                if (existenteNoDestino) {
+                    existenteNoDestino.qtd += qtd;
+                    existenteNoDestino.dataAtu = Date.now();
+                    estado.itens = estado.itens.filter(i => i.id !== item.id);
+                } else {
+                    item.setorId = setorDestinoId;
+                    item.dataAtu = Date.now();
+                }
+            } else {
+                // Subtrai e cria/atualiza no destino
+                item.qtd -= qtd;
+                item.dataAtu = Date.now();
+                if (existenteNoDestino) {
+                    existenteNoDestino.qtd += qtd;
+                    existenteNoDestino.dataAtu = Date.now();
+                } else {
+                    estado.itens.push({ id: 'item-' + Date.now(), nome: item.nome, qtd: qtd, setorId: setorDestinoId, dataAtu: Date.now() });
+                }
+            }
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast("Transferência realizada!");
+        }
+
+        function excluirItem(id) {
+            const item = estado.itens.find(i => i.id === id);
+            if (!item) return;
+
+            if (item.setorId === 'estoque' && item.qtd > 0) {
+                mostrarToast("Não é possível excluir item com estoque disponível!", "erro");
+                return;
+            }
+
+            if (confirm(`Deseja excluir ${item.nome}?`)) {
+                estado.itens = estado.itens.filter(i => i.id !== id);
+                salvarEstado();
+                atualizarQuadro();
+                mostrarToast("Item removido.");
+            }
+        }
+
+        // --- Auxiliares ---
+        function tratarBusca(valor) {
+            const sug = document.getElementById('sugestoes');
+            if (!valor.trim()) { sug.style.display = 'none'; limparDestaque(); return; }
+            const matches = estado.itens.filter(i => i.nome.toLowerCase().includes(valor.toLowerCase()));
+            if (matches.length > 0) {
+                sug.innerHTML = matches.map(m => `<div class="sugestao-item" onclick="selecionarSugestao('${m.nome}')">${m.nome} (${m.qtd})</div>`).join('');
+                sug.style.display = 'block';
+                const exata = matches.find(m => m.nome.toLowerCase() === valor.toLowerCase() && m.setorId === 'estoque');
+                if (exata) destacarItem(exata.id);
+            } else { sug.style.display = 'none'; limparDestaque(); }
+        }
+
+        function selecionarSugestao(nome) {
+            document.getElementById('nomeProduto').value = nome;
+            document.getElementById('sugestoes').style.display = 'none';
+            adicionarProduto();
+        }
+
+        function destacarItem(id) {
+            limparDestaque();
+            idItemDestacado = id;
+            atualizarQuadro();
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function limparDestaque() { idItemDestacado = null; }
+        function fecharModalTransferencia() { document.getElementById('modalTransferencia').style.display = 'none'; }
+        function salvarEstado() { localStorage.setItem('estoque_v3', JSON.stringify(estado)); }
+        function carregarEstado() { const s = localStorage.getItem('estoque_v3'); if (s) estado = JSON.parse(s); }
+
+        function exportarDados() {
+            const data = new Date().toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/:/g, '-');
+            const blob = new Blob([JSON.stringify(estado, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `estoque_backup_${data}.json`;
+            a.click();
+        }
+
+        function importarDados(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const d = JSON.parse(ev.target.result);
+                    if (d.setores && d.itens) { estado = d; salvarEstado(); atualizarQuadro(); mostrarToast("Dados importados!"); }
+                } catch { mostrarToast("Arquivo inválido!", "erro"); }
+            };
+            reader.readAsText(file);
+        }
+    </script>
+
+</body>
+</html>

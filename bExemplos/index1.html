@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque Inteligente - CRUD & Busca</title>
+    <style>
+        :root {
+            --bg-color: #f0f4f8;
+            --column-bg: #d1d9e6;
+            --card-bg: #ffffff;
+            --primary-color: #2c5282;
+            --accent-color: #4299e1;
+            --danger-color: #e53e3e;
+            --success-color: #38a169;
+            --warning-color: #ecc94b;
+            --text-color: #2d3748;
+            --highlight-color: #fff5f5;
+            --highlight-border: #feb2b2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .header {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-top: 0;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            position: relative;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        input {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+
+        .search-suggestion {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 100;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .suggestion-item:hover {
+            background-color: #ebf8ff;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            align-self: flex-end;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .board {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            align-items: start;
+            min-height: 600px;
+        }
+
+        .column {
+            background-color: var(--column-bg);
+            border-radius: 12px;
+            min-width: 320px;
+            max-width: 320px;
+            padding: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .column.drag-over {
+            background-color: #cbd5e0;
+            border-color: var(--accent-color);
+        }
+
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            cursor: grab;
+            transition: all 0.3s;
+            border-left: 5px solid var(--accent-color);
+            position: relative;
+        }
+
+        .card.highlighted {
+            border-color: var(--danger-color);
+            background-color: var(--highlight-color);
+            box-shadow: 0 0 15px rgba(229, 62, 62, 0.3);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-name {
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .card-qty {
+            font-size: 0.9rem;
+            color: #718096;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .qty-badge {
+            background: #edf2f7;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .card-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .btn-card {
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        .btn-edit { background-color: var(--warning-color); color: #744210; }
+        .btn-delete { background-color: var(--danger-color); }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .empty-msg {
+            text-align: center;
+            color: #718096;
+            font-style: italic;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>📦 Gestão de Estoque Inteligente</h1>
+
+            <div class="controls">
+                <div class="input-group">
+                    <label>Produto (Busca Inteligente)</label>
+                    <input type="text" id="prodName" placeholder="Digite para buscar ou criar..." oninput="handleSearch(this.value)">
+                    <div id="searchSuggestions" class="search-suggestion"></div>
+                </div>
+                <div class="input-group">
+                    <label>Quantidade</label>
+                    <input type="number" id="prodQty" value="1" min="1" style="width: 100px;">
+                </div>
+                <button onclick="addProduct()" id="btnAdd">Adicionar / Atualizar</button>
+
+                <div style="width: 20px;"></div>
+
+                <div class="input-group">
+                    <label>Novo Departamento</label>
+                    <input type="text" id="deptName" placeholder="Nome do setor">
+                </div>
+                <button onclick="addDepartment()" style="background-color: var(--accent-color);">Criar Setor</button>
+
+                <button onclick="exportData()" style="background-color: var(--success-color);">Exportar JSON</button>
+            </div>
+        </div>
+
+        <div class="board" id="board">
+            <!-- Colunas dinâmicas -->
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Item</h3>
+            <div class="input-group" style="width: 100%; margin-bottom: 15px;">
+                <label>Nome do Produto</label>
+                <input type="text" id="editName" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="input-group" style="width: 100%;">
+                <label>Quantidade</label>
+                <input type="number" id="editQty" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeEditModal()" style="background: #a0aec0;">Cancelar</button>
+                <button onclick="saveEdit()" style="background: var(--success-color);">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Transferência -->
+    <div id="qtyModal" class="modal">
+        <div class="modal-content">
+            <h3>Transferir Quantidade</h3>
+            <p id="modalInfo"></p>
+            <div class="input-group" style="width: 100%;">
+                <label>Quantidade a enviar:</label>
+                <input type="number" id="transferQty" min="1" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeTransferModal()" style="background: #a0aec0;">Cancelar</button>
+                <button onclick="confirmTransfer()" style="background: var(--success-color);">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let state = {
+            departments: ['estoque', 'contabilidade', 'compras'],
+            deptLabels: {
+                'estoque': '📦 Estoque Central',
+                'contabilidade': '📊 Contabilidade',
+                'compras': '🛒 Compras'
+            },
+            items: []
+        };
+
+        let pendingTransfer = null;
+        let editingItemId = null;
+        let highlightedItemId = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            renderBoard();
+        });
+
+        // --- Lógica de Busca e CRUD ---
+
+        function handleSearch(value) {
+            const suggestions = document.getElementById('searchSuggestions');
+            const btnAdd = document.getElementById('btnAdd');
+
+            if (!value.trim()) {
+                suggestions.style.display = 'none';
+                clearHighlight();
+                btnAdd.innerText = 'Adicionar / Atualizar';
+                return;
+            }
+
+            const matches = state.items.filter(item =>
+                item.name.toLowerCase().includes(value.toLowerCase())
+            );
+
+            if (matches.length > 0) {
+                suggestions.innerHTML = matches.map(item => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${item.name}')">
+                        ${item.name} (${state.deptLabels[item.deptId]}) - Qtd: ${item.qty}
+                    </div>
+                `).join('');
+                suggestions.style.display = 'block';
+
+                // Destacar o primeiro match exato ou parcial no estoque
+                const exactMatch = matches.find(m => m.name.toLowerCase() === value.toLowerCase() && m.deptId === 'estoque');
+                if (exactMatch) {
+                    highlightItem(exactMatch.id);
+                    btnAdd.innerText = 'Atualizar Quantidade';
+                } else {
+                    clearHighlight();
+                    btnAdd.innerText = 'Adicionar Novo';
+                }
+            } else {
+                suggestions.style.display = 'none';
+                clearHighlight();
+                btnAdd.innerText = 'Adicionar Novo';
+            }
+        }
+
+        function selectSuggestion(name) {
+            document.getElementById('prodName').value = name;
+            document.getElementById('searchSuggestions').style.display = 'none';
+            handleSearch(name);
+        }
+
+        function highlightItem(id) {
+            clearHighlight();
+            highlightedItemId = id;
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('highlighted');
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function clearHighlight() {
+            if (highlightedItemId) {
+                const el = document.getElementById(highlightedItemId);
+                if (el) el.classList.remove('highlighted');
+                highlightedItemId = null;
+            }
+        }
+
+        function addProduct() {
+            const name = document.getElementById('prodName').value.trim();
+            const qty = parseInt(document.getElementById('prodQty').value);
+            if (!name || isNaN(qty) || qty < 1) return;
+
+            // Verificar se já existe no estoque
+            const existing = state.items.find(i => i.name.toLowerCase() === name.toLowerCase() && i.deptId === 'estoque');
+
+            if (existing) {
+                existing.qty += qty;
+                // Mover para o topo da lista (reordenar)
+                state.items = [existing, ...state.items.filter(i => i.id !== existing.id)];
+            } else {
+                const newItem = {
+                    id: 'item-' + Date.now(),
+                    name: name,
+                    qty: qty,
+                    deptId: 'estoque'
+                };
+                state.items.unshift(newItem); // Adiciona no início
+            }
+
+            saveState();
+            renderBoard();
+
+            // Limpar campos
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodQty').value = '1';
+            document.getElementById('searchSuggestions').style.display = 'none';
+            clearHighlight();
+        }
+
+        // --- Edição (Update) ---
+
+        function openEditModal(id) {
+            const item = state.items.find(i => i.id === id);
+            if (!item) return;
+            editingItemId = id;
+            document.getElementById('editName').value = item.name;
+            document.getElementById('editQty').value = item.qty;
+            document.getElementById('editModal').style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+            editingItemId = null;
+        }
+
+        function saveEdit() {
+            const name = document.getElementById('editName').value.trim();
+            const qty = parseInt(document.getElementById('editQty').value);
+            if (!name || isNaN(qty) || qty < 1) return;
+
+            const item = state.items.find(i => i.id === editingItemId);
+            if (item) {
+                item.name = name;
+                item.qty = qty;
+                saveState();
+                renderBoard();
+            }
+            closeEditModal();
+        }
+
+        // --- Lógica de Departamentos e Board ---
+
+        function addDepartment() {
+            const name = document.getElementById('deptName').value.trim();
+            if (!name) return;
+            const id = 'dept-' + Date.now();
+            state.departments.push(id);
+            state.deptLabels[id] = name;
+            saveState();
+            renderBoard();
+            document.getElementById('deptName').value = '';
+        }
+
+        function removeDepartment(deptId) {
+            if (deptId === 'estoque') return;
+            if (!confirm("Deseja remover este setor? Itens serão devolvidos ao estoque.")) return;
+
+            state.items.forEach(item => {
+                if (item.deptId === deptId) item.deptId = 'estoque';
+            });
+            state.departments = state.departments.filter(id => id !== deptId);
+            delete state.deptLabels[deptId];
+            saveState();
+            renderBoard();
+        }
+
+        function renderBoard() {
+            const board = document.getElementById('board');
+            board.innerHTML = '';
+
+            state.departments.forEach(deptId => {
+                const col = document.createElement('div');
+                col.className = 'column';
+                col.id = deptId;
+
+                const label = state.deptLabels[deptId];
+                const isEstoque = deptId === 'estoque';
+
+                col.innerHTML = `
+                    <div class="column-header">
+                        <h3>${label}</h3>
+                        ${!isEstoque ? `<button onclick="removeDepartment('${deptId}')" style="background:none;color:var(--danger-color);border:none;font-size:1.5rem;cursor:pointer;">×</button>` : ''}
+                    </div>
+                    <div class="items-container" style="min-height: 450px;"></div>
+                `;
+
+                col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('drag-over'); });
+                col.addEventListener('dragleave', () => col.classList.remove('drag-over'));
+                col.addEventListener('drop', e => handleDrop(e, deptId));
+
+                const container = col.querySelector('.items-container');
+                const deptItems = state.items.filter(item => item.deptId === deptId);
+
+                if (deptItems.length === 0) {
+                    container.innerHTML = '<div class="empty-msg">Vazio</div>';
+                } else {
+                    deptItems.forEach(item => {
+                        const card = createCard(item);
+                        container.appendChild(card);
+                    });
+                }
+                board.appendChild(col);
+            });
+        }
+
+        function createCard(item) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.id = item.id;
+            card.draggable = true;
+
+            card.innerHTML = `
+                <div class="card-info">
+                    <div class="card-name">${item.name}</div>
+                    <div class="card-qty">Qtd: <span class="qty-badge">${item.qty}</span></div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-card btn-edit" onclick="openEditModal('${item.id}')">Editar</button>
+                    <button class="btn-card btn-delete" onclick="deleteItem('${item.id}')">Excluir</button>
+                </div>
+            `;
+
+            card.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/plain', item.id);
+                card.classList.add('dragging');
+            });
+            card.addEventListener('dragend', () => card.classList.remove('dragging'));
+
+            return card;
+        }
+
+        // --- Transferência e Drag/Drop ---
+
+        function handleDrop(e, targetDeptId) {
+            e.preventDefault();
+            document.getElementById(targetDeptId).classList.remove('drag-over');
+            const itemId = e.dataTransfer.getData('text/plain');
+            const item = state.items.find(i => i.id === itemId);
+            if (!item || item.deptId === targetDeptId) return;
+
+            if (item.qty > 1) {
+                pendingTransfer = { item, targetDeptId };
+                document.getElementById('modalInfo').innerText = `Transferir ${item.name} (Total: ${item.qty})`;
+                document.getElementById('transferQty').value = item.qty;
+                document.getElementById('transferQty').max = item.qty;
+                document.getElementById('qtyModal').style.display = 'flex';
+            } else {
+                moveItem(item, targetDeptId, 1);
+            }
+        }
+
+        function confirmTransfer() {
+            const qty = parseInt(document.getElementById('transferQty').value);
+            if (qty > 0 && qty <= pendingTransfer.item.qty) {
+                moveItem(pendingTransfer.item, pendingTransfer.targetDeptId, qty);
+                closeTransferModal();
+            } else {
+                alert("Quantidade inválida");
+            }
+        }
+
+        function closeTransferModal() {
+            document.getElementById('qtyModal').style.display = 'none';
+            pendingTransfer = null;
+        }
+
+        function moveItem(item, targetDeptId, qty) {
+            if (qty === item.qty) {
+                const existing = state.items.find(i => i.name.toLowerCase() === item.name.toLowerCase() && i.deptId === targetDeptId);
+                if (existing) {
+                    existing.qty += qty;
+                    state.items = state.items.filter(i => i.id !== item.id);
+                } else {
+                    item.deptId = targetDeptId;
+                }
+            } else {
+                item.qty -= qty;
+                const existing = state.items.find(i => i.name.toLowerCase() === item.name.toLowerCase() && i.deptId === targetDeptId);
+                if (existing) {
+                    existing.qty += qty;
+                } else {
+                    state.items.push({ id: 'item-' + Date.now(), name: item.name, qty: qty, deptId: targetDeptId });
+                }
+            }
+            saveState();
+            renderBoard();
+        }
+
+        function deleteItem(id) {
+            if (confirm("Excluir item?")) {
+                state.items = state.items.filter(i => i.id !== id);
+                saveState();
+                renderBoard();
+            }
+        }
+
+        function saveState() { localStorage.setItem('estoque_v5_crud', JSON.stringify(state)); }
+        function loadState() {
+            const saved = localStorage.getItem('estoque_v5_crud');
+            if (saved) state = JSON.parse(saved);
+        }
+        function exportData() {
+            const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'estoque_v5.json'; a.click();
+        }
+    </script>
+</body>
+</html>

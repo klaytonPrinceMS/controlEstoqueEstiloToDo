@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque Profissional v2.1</title>
+    <style>
+        :root {
+            --cor-fundo: #f0f4f8;
+            --cor-coluna: #d1d9e6;
+            --cor-cartao: #ffffff;
+            --cor-primaria: #2c5282;
+            --cor-destaque: #4299e1;
+            --cor-perigo: #e53e3e;
+            --cor-sucesso: #38a169;
+            --cor-alerta: #ecc94b;
+            --cor-texto: #2d3748;
+            --cor-realce-fundo: #fff5f5;
+            --cor-zerado: #a0aec0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1600px;
+        }
+
+        .cabecalho {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .cabecalho h1 {
+            margin: 0 0 15px 0;
+            text-align: center;
+            color: var(--cor-primaria);
+            font-size: 1.5rem;
+        }
+
+        .controles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding-top: 15px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .grupo-input {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+        }
+
+        label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        input, select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--cor-destaque);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+
+        .sugestoes-busca {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 100;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .item-sugestao {
+            padding: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .item-sugestao:hover { background-color: #ebf8ff; }
+
+        button {
+            padding: 8px 16px;
+            background-color: var(--cor-primaria);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .quadro {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 15px;
+            align-items: start;
+            min-height: 600px;
+            width: 100%;
+        }
+
+        .coluna {
+            background-color: var(--cor-coluna);
+            border-radius: 12px;
+            min-width: 280px;
+            max-width: 280px;
+            padding: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            max-height: 75vh;
+        }
+
+        .coluna.arrastando-sobre {
+            background-color: #cbd5e0;
+            border-color: var(--cor-destaque);
+        }
+
+        .cabecalho-coluna {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .cabecalho-coluna h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .container-itens {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 4px;
+        }
+
+        .cartao {
+            background-color: var(--cor-cartao);
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            cursor: grab;
+            transition: all 0.2s;
+            border-left: 4px solid var(--cor-destaque);
+            position: relative;
+            touch-action: none;
+        }
+
+        .cartao.zerado {
+            border-left-color: var(--cor-zerado);
+            opacity: 0.7;
+            background-color: #f7fafc;
+        }
+
+        .cartao.zerado .selo-qtd {
+            background-color: #e2e8f0;
+            color: #718096;
+        }
+
+        .cartao.destacado {
+            border-color: var(--cor-perigo);
+            background-color: var(--cor-realce-fundo);
+            box-shadow: 0 0 10px rgba(229, 62, 62, 0.2);
+            transform: scale(1.02);
+        }
+
+        .cartao.arrastando { opacity: 0.4; }
+
+        .info-cartao { display: flex; flex-direction: column; gap: 3px; }
+        .nome-cartao { font-weight: bold; font-size: 0.95rem; }
+        .qtd-cartao { font-size: 0.85rem; color: #718096; display: flex; justify-content: space-between; }
+        .selo-qtd { background: #edf2f7; padding: 1px 6px; border-radius: 12px; font-weight: bold; color: var(--cor-primaria); }
+
+        .acoes-cartao { margin-top: 8px; display: flex; justify-content: flex-end; gap: 6px; }
+        .btn-cartao { padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; border: none; cursor: pointer; font-weight: bold; color: white; }
+        .btn-editar { background-color: var(--cor-alerta); color: #744210; }
+        .btn-excluir { background-color: var(--cor-perigo); }
+
+        #container-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: slideIn 0.3s ease-out;
+            min-width: 200px;
+        }
+
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .toast-sucesso { background-color: var(--cor-sucesso); }
+        .toast-erro { background-color: var(--cor-perigo); }
+        .toast-alerta { background-color: var(--cor-alerta); color: #744210; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .conteudo-modal {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .botoes-modal { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .controles { flex-direction: column; align-items: stretch; }
+            .grupo-input input, .grupo-input select, button { width: 100%; }
+            .coluna { min-width: 85vw; max-width: 85vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container-toast"></div>
+
+    <div class="container">
+        <div class="cabecalho">
+            <h1>📦 Estoque Profissional v2.1</h1>
+
+            <div class="controles">
+                <div class="grupo-input">
+                    <label>Produto</label>
+                    <input type="text" id="nomeProduto" placeholder="Buscar ou criar..." oninput="tratarBusca(this.value)">
+                    <div id="sugestoesBusca" class="sugestoes-busca"></div>
+                </div>
+                <div class="grupo-input">
+                    <label>Qtd</label>
+                    <input type="number" id="qtdProduto" value="1" min="1" style="width: 80px;">
+                </div>
+                <button onclick="adicionarProduto()" id="btnAcao">Adicionar</button>
+
+                <div class="grupo-input">
+                    <label>Novo Setor</label>
+                    <input type="text" id="nomeSetor" placeholder="Nome...">
+                </div>
+                <button onclick="adicionarSetor()" style="background-color: var(--cor-destaque);">Criar Setor</button>
+
+                <div class="grupo-input">
+                    <label>Ordem</label>
+                    <select id="ordemTipo" onchange="atualizarQuadro()">
+                        <option value="alfabetica">A-Z</option>
+                        <option value="quantidade">Quantidade</option>
+                        <option value="recente">Recentes</option>
+                    </select>
+                </div>
+
+                <button onclick="exportarDados()" style="background-color: var(--cor-sucesso);">Backup</button>
+                <button onclick="document.getElementById('inputImportar').click()" style="background-color: #4a5568;">Importar</button>
+                <input type="file" id="inputImportar" style="display: none;" accept=".json" onchange="importarDados(event)">
+            </div>
+        </div>
+
+        <div class="quadro" id="quadro"></div>
+    </div>
+
+    <!-- Modal Editar -->
+    <div id="modalEditar" class="modal">
+        <div class="conteudo-modal">
+            <h3>Editar Item</h3>
+            <div class="grupo-input" style="margin-bottom: 15px;">
+                <label>Nome</label>
+                <input type="text" id="editarNome" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="grupo-input">
+                <label>Quantidade</label>
+                <input type="number" id="editarQtd" min="0" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="botoes-modal">
+                <button onclick="fecharModalEditar()" style="background: #a0aec0;">Cancelar</button>
+                <button onclick="salvarEdicao()" style="background: var(--cor-sucesso);">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Transferência -->
+    <div id="modalQtd" class="modal">
+        <div class="conteudo-modal">
+            <h3>Transferir</h3>
+            <p id="infoModalTransferencia" style="font-size: 0.9rem; color: #4a5568;"></p>
+            <div class="grupo-input">
+                <label>Quantidade:</label>
+                <input type="number" id="qtdTransferencia" min="1" style="width: 100%; box-sizing: border-box;">
+            </div>
+            <div class="botoes-modal">
+                <button onclick="fecharModalTransferencia()" style="background: #a0aec0;">Cancelar</button>
+                <button onclick="confirmarTransferencia()" style="background: var(--cor-sucesso);">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let estado = {
+            setores: ['estoque', 'contabilidade', 'compras'],
+            rotulosSetores: { 'estoque': '📦 Estoque Central', 'contabilidade': '📊 Contabilidade', 'compras': '🛒 Compras' },
+            itens: []
+        };
+
+        let transferenciaPendente = null;
+        let idItemEditando = null;
+        let idItemDestacado = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarEstado();
+            atualizarQuadro();
+        });
+
+        function mostrarToast(msg, tipo = 'sucesso') {
+            const container = document.getElementById('container-toast');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${tipo}`;
+            toast.innerText = msg;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function tratarBusca(valor) {
+            const sugestoes = document.getElementById('sugestoesBusca');
+            const btnAcao = document.getElementById('btnAcao');
+            if (!valor.trim()) { sugestoes.style.display = 'none'; limparDestaque(); btnAcao.innerText = 'Adicionar'; return; }
+
+            const correspondencias = estado.itens.filter(item => item.nome.toLowerCase().includes(valor.toLowerCase()));
+            if (correspondencias.length > 0) {
+                sugestoes.innerHTML = correspondencias.map(item => `
+                    <div class="item-sugestao" onclick="selecionarSugestao('${item.nome}')">
+                        ${item.nome} (${estado.rotulosSetores[item.setorId] || 'Setor'}) - Qtd: ${item.qtd}
+                    </div>
+                `).join('');
+                sugestoes.style.display = 'block';
+
+                const exata = correspondencias.find(m => m.nome.toLowerCase() === valor.toLowerCase() && m.setorId === 'estoque');
+                if (exata) { destacarItem(exata.id); btnAcao.innerText = 'Atualizar'; }
+                else { limparDestaque(); btnAcao.innerText = 'Novo'; }
+            } else { sugestoes.style.display = 'none'; limparDestaque(); btnAcao.innerText = 'Novo'; }
+        }
+
+        function selecionarSugestao(nome) {
+            document.getElementById('nomeProduto').value = nome;
+            document.getElementById('sugestoesBusca').style.display = 'none';
+            tratarBusca(nome);
+        }
+
+        function destacarItem(id) {
+            limparDestaque();
+            idItemDestacado = id;
+            const el = document.getElementById(id);
+            if (el) { el.classList.add('destacado'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+
+        function limparDestaque() {
+            if (idItemDestacado) {
+                const el = document.getElementById(idItemDestacado);
+                if (el) el.classList.remove('destacado');
+                idItemDestacado = null;
+            }
+        }
+
+        function adicionarProduto() {
+            const nome = document.getElementById('nomeProduto').value.trim();
+            const qtd = parseInt(document.getElementById('qtdProduto').value);
+            if (!nome || isNaN(qtd) || qtd < 1) { mostrarToast("Dados inválidos!", "erro"); return; }
+
+            const existente = estado.itens.find(i => i.nome.toLowerCase() === nome.toLowerCase() && i.setorId === 'estoque');
+            if (existente) {
+                existente.qtd += qtd;
+                existente.dataCriacao = Date.now();
+                mostrarToast(`Quantidade de ${nome} atualizada!`);
+            } else {
+                estado.itens.push({ id: 'item-' + Date.now(), nome, qtd, setorId: 'estoque', dataCriacao: Date.now() });
+                mostrarToast(`${nome} adicionado ao estoque!`);
+            }
+
+            salvarEstado();
+            atualizarQuadro();
+            document.getElementById('nomeProduto').value = '';
+            document.getElementById('qtdProduto').value = '1';
+            document.getElementById('sugestoesBusca').style.display = 'none';
+            limparDestaque();
+        }
+
+        function abrirModalEditar(id) {
+            const item = estado.itens.find(i => i.id === id);
+            if (!item) return;
+            idItemEditando = id;
+            document.getElementById('editarNome').value = item.nome;
+            document.getElementById('editarQtd').value = item.qtd;
+            document.getElementById('modalEditar').style.display = 'flex';
+        }
+
+        function fecharModalEditar() { document.getElementById('modalEditar').style.display = 'none'; idItemEditando = null; }
+
+        function salvarEdicao() {
+            const nome = document.getElementById('editarNome').value.trim();
+            const qtd = parseInt(document.getElementById('editarQtd').value);
+            if (!nome || isNaN(qtd) || qtd < 0) { mostrarToast("Quantidade não pode ser negativa!", "erro"); return; }
+
+            const item = estado.itens.find(i => i.id === idItemEditando);
+            if (item) {
+                item.nome = nome;
+                item.qtd = qtd;
+                item.dataCriacao = Date.now();
+                salvarEstado();
+                atualizarQuadro();
+                mostrarToast("Item atualizado!");
+            }
+            fecharModalEditar();
+        }
+
+        function adicionarSetor() {
+            const nome = document.getElementById('nomeSetor').value.trim();
+            if (!nome) return;
+            const id = 'setor-' + Date.now();
+            estado.setores.push(id);
+            estado.rotulosSetores[id] = nome;
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast(`Setor ${nome} criado!`);
+            document.getElementById('nomeSetor').value = '';
+        }
+
+        function removerSetor(setorId) {
+            if (setorId === 'estoque') return;
+            if (!confirm("Remover setor? Itens voltarão ao estoque.")) return;
+            estado.itens.forEach(item => {
+                if (item.setorId === setorId) {
+                    // Tentar mesclar com item existente no estoque
+                    const noEstoque = estado.itens.find(i => i.nome.toLowerCase() === item.nome.toLowerCase() && i.setorId === 'estoque');
+                    if (noEstoque) {
+                        noEstoque.qtd += item.qtd;
+                        noEstoque.dataCriacao = Date.now();
+                        item.qtd = -1; // Marcar para remoção
+                    } else {
+                        item.setorId = 'estoque';
+                        item.dataCriacao = Date.now();
+                    }
+                }
+            });
+            estado.itens = estado.itens.filter(i => i.qtd !== -1);
+            estado.setores = estado.setores.filter(id => id !== setorId);
+            delete estado.rotulosSetores[setorId];
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast("Setor removido.");
+        }
+
+        function atualizarQuadro() {
+            const quadro = document.getElementById('quadro');
+            quadro.innerHTML = '';
+            const tipoOrdem = document.getElementById('ordemTipo').value;
+
+            estado.setores.forEach(setorId => {
+                const col = document.createElement('div');
+                col.className = 'coluna';
+                col.id = setorId;
+                col.innerHTML = `
+                    <div class="cabecalho-coluna">
+                        <h3>${estado.rotulosSetores[setorId]}</h3>
+                        ${setorId !== 'estoque' ? `<button onclick="removerSetor('${setorId}')" style="background:none;color:var(--cor-perigo);border:none;font-size:1.2rem;cursor:pointer;">×</button>` : ''}
+                    </div>
+                    <div class="container-itens"></div>
+                `;
+
+                col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('arrastando-sobre'); });
+                col.addEventListener('dragleave', () => col.classList.remove('arrastando-sobre'));
+                col.addEventListener('drop', e => tratarSoltura(e, setorId));
+
+                const container = col.querySelector('.container-itens');
+                let itensSetor = estado.itens.filter(item => item.setorId === setorId);
+
+                if (tipoOrdem === 'alfabetica') itensSetor.sort((a, b) => a.nome.localeCompare(b.nome));
+                else if (tipoOrdem === 'quantidade') itensSetor.sort((a, b) => b.qtd - a.qtd);
+                else itensSetor.sort((a, b) => b.dataCriacao - a.dataCriacao);
+
+                if (itensSetor.length === 0) container.innerHTML = '<div class="vazio-msg">Vazio</div>';
+                else itensSetor.forEach(item => container.appendChild(criarCartao(item)));
+                quadro.appendChild(col);
+            });
+        }
+
+        function criarCartao(item) {
+            const cartao = document.createElement('div');
+            cartao.className = `cartao ${item.qtd === 0 ? 'zerado' : ''}`;
+            cartao.id = item.id;
+            cartao.draggable = item.qtd > 0;
+            cartao.innerHTML = `
+                <div class="info-cartao">
+                    <div class="nome-cartao">${item.nome}</div>
+                    <div class="qtd-cartao">Qtd: <span class="selo-qtd">${item.qtd}</span></div>
+                </div>
+                <div class="acoes-cartao">
+                    <button class="btn-cartao btn-editar" onclick="abrirModalEditar('${item.id}')">Editar</button>
+                    <button class="btn-cartao btn-excluir" onclick="excluirItem('${item.id}')">Excluir</button>
+                </div>
+            `;
+            if (item.qtd > 0) {
+                cartao.addEventListener('dragstart', e => { e.dataTransfer.setData('text/plain', item.id); cartao.classList.add('arrastando'); });
+                cartao.addEventListener('dragend', () => cartao.classList.remove('arrastando'));
+            }
+            return cartao;
+        }
+
+        function tratarSoltura(e, setorDestinoId) {
+            e.preventDefault();
+            document.getElementById(setorDestinoId).classList.remove('arrastando-sobre');
+            const idItem = e.dataTransfer.getData('text/plain');
+            const item = estado.itens.find(i => i.id === idItem);
+            if (!item || item.setorId === setorDestinoId) return;
+
+            if (item.qtd > 1) {
+                transferenciaPendente = { item, setorDestinoId };
+                document.getElementById('infoModalTransferencia').innerText = `Transferir ${item.nome} (Disponível: ${item.qtd})`;
+                document.getElementById('qtdTransferencia').value = item.qtd;
+                document.getElementById('qtdTransferencia').max = item.qtd;
+                document.getElementById('modalQtd').style.display = 'flex';
+            } else { moverItem(item, setorDestinoId, 1); }
+        }
+
+        function confirmarTransferencia() {
+            const qtd = parseInt(document.getElementById('qtdTransferencia').value);
+            if (qtd > 0 && qtd <= transferenciaPendente.item.qtd) {
+                moverItem(transferenciaPendente.item, transferenciaPendente.setorDestinoId, qtd);
+                fecharModalTransferencia();
+            } else { mostrarToast("Quantidade inválida!", "erro"); }
+        }
+
+        function fecharModalTransferencia() { document.getElementById('modalQtd').style.display = 'none'; transferenciaPendente = null; }
+
+        function moverItem(item, setorDestinoId, qtd) {
+            if (item.qtd < qtd) { mostrarToast("Erro: Quantidade insuficiente!", "erro"); return; }
+
+            const setorOrigemId = item.setorId;
+            const existenteNoDestino = estado.itens.find(i => i.nome.toLowerCase() === item.nome.toLowerCase() && i.setorId === setorDestinoId);
+
+            if (qtd === item.qtd) {
+                // Se for do estoque central, mantém o registro com zero
+                if (setorOrigemId === 'estoque') {
+                    item.qtd = 0;
+                    if (existenteNoDestino) {
+                        existenteNoDestino.qtd += qtd;
+                        existenteNoDestino.dataCriacao = Date.now();
+                    } else {
+                        estado.itens.push({ id: 'item-' + Date.now(), nome: item.nome, qtd: qtd, setorId: setorDestinoId, dataCriacao: Date.now() });
+                    }
+                } else {
+                    // Se for de outro setor, move ou mescla normalmente
+                    if (existenteNoDestino) {
+                        existenteNoDestino.qtd += qtd;
+                        existenteNoDestino.dataCriacao = Date.now();
+                        estado.itens = estado.itens.filter(i => i.id !== item.id);
+                    } else {
+                        item.setorId = setorDestinoId;
+                        item.dataCriacao = Date.now();
+                    }
+                }
+            } else {
+                item.qtd -= qtd;
+                if (existenteNoDestino) {
+                    existenteNoDestino.qtd += qtd;
+                    existenteNoDestino.dataCriacao = Date.now();
+                } else {
+                    estado.itens.push({ id: 'item-' + Date.now(), nome: item.nome, qtd: qtd, setorId: setorDestinoId, dataCriacao: Date.now() });
+                }
+            }
+            salvarEstado();
+            atualizarQuadro();
+            mostrarToast("Movimentação concluída!");
+        }
+
+        function excluirItem(id) {
+            if (confirm("Excluir item?")) {
+                estado.itens = estado.itens.filter(i => i.id !== id);
+                salvarEstado();
+                atualizarQuadro();
+                mostrarToast("Item excluído.", "alerta");
+            }
+        }
+
+        function salvarEstado() { localStorage.setItem('estoque_v7_final', JSON.stringify(estado)); }
+        function carregarEstado() { const salvo = localStorage.getItem('estoque_v7_final'); if (salvo) estado = JSON.parse(salvo); }
+
+        function exportarDados() {
+            const agora = new Date();
+            const dataStr = agora.toLocaleString('pt-BR').replace(/[\/:]/g, '-').replace(', ', '_');
+            const nomeArquivo = `backup_estoque_${dataStr}.json`;
+            const blob = new Blob([JSON.stringify(estado, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = nomeArquivo; a.click();
+            mostrarToast("Backup exportado!");
+        }
+
+        function importarDados(evento) {
+            const arquivo = evento.target.files[0];
+            if (!arquivo) return;
+            const leitor = new FileReader();
+            leitor.onload = function(e) {
+                try {
+                    const dados = JSON.parse(e.target.result);
+                    if (dados.setores && Array.isArray(dados.itens)) {
+                        estado = dados;
+                        salvarEstado();
+                        atualizarQuadro();
+                        mostrarToast("Dados importados com sucesso!");
+                    } else { throw new Error(); }
+                } catch (err) { mostrarToast("Arquivo de backup inválido!", "erro"); }
+            };
+            leitor.readAsText(arquivo);
+        }
+    </script>
+</body>
+</html>
