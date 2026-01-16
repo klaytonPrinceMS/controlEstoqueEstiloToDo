@@ -1,6 +1,6 @@
 ## 10.1 📝 Registro de Mudanças (CHANGELOG)
 
-```markdown
+
 # Changelog
 
 Todos os mudanças notáveis neste projeto serão documentadas neste arquivo.
@@ -42,7 +42,7 @@ e este projeto adere ao [Versionamento Misto SemVer + CalVer](https://semver.org
 ### Segurança
 - Hash básico de senhas implementado
 - Validação de permissões em todas as ações
-```
+
 
 ---
 
