@@ -1,0 +1,1227 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Documento de Casos de Testes - Controle de estoque para Uso Local</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-casos-de-testes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-header__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Controle de estoque para Uso Local
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Casos de Testes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-nav__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Controle de estoque para Uso Local
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_de_risco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analise de Risco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_de_software_das/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura de Software DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuiçoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes_aprendida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_administrador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Administradores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_almoxarife/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_instalacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_operadores.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metricas do Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padroes_codificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrões de Codificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plano_de_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_de_mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_dasos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Casos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versionamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_de_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_levantamento_requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-casos-de-teste-autenticacao-e-sessao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Casos de Teste – Autenticação e Sessão
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-casos-de-teste-gestao-de-usuarios-apenas-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Casos de Teste – Gestão de Usuários (apenas Admin)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-casos-de-teste-gestao-de-setores-admin-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Casos de Teste – Gestão de Setores (Admin / Almoxarifado)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-casos-de-teste-estoque-e-movimentacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Casos de Teste – Estoque e Movimentações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-casos-de-teste-sistema-de-solicitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Casos de Teste – Sistema de Solicitações
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-casos-de-teste-auditoria-e-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Casos de Teste – Auditoria e Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-resumo-geral-dos-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Resumo Geral dos Testes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documento-de-casos-de-testes">Documento de Casos de Testes</h1>
+<p><strong>Sistema de Estoque Enterprise</strong><br />
+<strong>Versão do MVP:</strong> concluída em 11/01/2026)</p>
+<p><strong>Objetivo do documento:</strong><br />
+Registrar os principais casos de teste manuais realizados para validar o funcionamento correto do sistema, cobrindo fluxos críticos, cenários de erro e regras de negócio.<br />
+Todos os testes foram executados manualmente pelo desenvolvedor durante o desenvolvimento e na fase final de aceitação.</p>
+<p><strong>Data de elaboração:</strong> 11 de janeiro de 2026<br />
+<strong>Responsável pelos testes:</strong> Klayton B. Prince<br />
+<strong>Ambiente de teste:</strong><br />
+- Navegador: Google Chrome 128+<br />
+- Sistema operacional: Windows 11<br />
+- LocalStorage limpo antes de cada bateria de testes críticos<br />
+- Dados de teste: ~50 itens fictícios + 5 usuários + 8 setores</p>
+<p><strong>Critérios gerais de aprovação:</strong>
+- Passou: comportamento esperado conforme requisitos
+- Falhou: bug, comportamento inesperado ou violação de regra
+- Bloqueado: teste não executado por dependência</p>
+<hr />
+<h2 id="1-casos-de-teste-autenticacao-e-sessao">1. Casos de Teste – Autenticação e Sessão</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-A01</td>
+<td>Login com credenciais corretas (admin)</td>
+<td>1. Digitar login "admin" e senha correta<br>2. Clicar em Entrar</td>
+<td>Redireciona para dashboard admin, log registrado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-A02</td>
+<td>Login credenciais incorretas</td>
+<td>1. Digitar login/senha errados<br>2. Clicar em Entrar</td>
+<td>Toast de erro "Credenciais inválidas"</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-A03</td>
+<td>Primeiro acesso – alteração obrigatória de senha</td>
+<td>1. Login com senha inicial<br>2. Modal de nova senha aparece</td>
+<td>Senha atualizada, flag primeiroAcesso = false</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-A04</td>
+<td>Usuário bloqueado tenta login</td>
+<td>1. Bloquear usuário via admin<br>2. Tentar login</td>
+<td>Toast "Usuário bloqueado"</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-A05</td>
+<td>Logout funcional</td>
+<td>1. Logado → clicar [Sair]</td>
+<td>Volta para tela de login, sessão limpa</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-casos-de-teste-gestao-de-usuarios-apenas-admin">2. Casos de Teste – Gestão de Usuários (apenas Admin)</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-U01</td>
+<td>Criar novo usuário (setor)</td>
+<td>1. Novo usuário<br>2. Preencher login, senha, tipo "setor", selecionar setor</td>
+<td>Usuário criado, flag primeiroAcesso = true, log gerado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-U02</td>
+<td>Criar usuário com login duplicado</td>
+<td>1. Tentar criar com login já existente</td>
+<td>Toast de erro "Login já existe"</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-U03</td>
+<td>Bloquear / desbloquear usuário</td>
+<td>1. Bloquear usuário<br>2. Tentar login<br>3. Desbloquear</td>
+<td>Login bloqueado → desbloqueado com sucesso</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-U04</td>
+<td>Resetar senha de usuário</td>
+<td>1. Resetar senha de usuário X</td>
+<td>Nova senha temporária gerada, flag primeiroAcesso = true</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-U05</td>
+<td>Excluir usuário (não admin)</td>
+<td>1. Excluir usuário comum</td>
+<td>Usuário removido, log gerado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-casos-de-teste-gestao-de-setores-admin-almoxarifado">3. Casos de Teste – Gestão de Setores (Admin / Almoxarifado)</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-S01</td>
+<td>Criar novo setor</td>
+<td>1. Novo setor → nome, emoji, cor</td>
+<td>Setor aparece na lista, ordem automática</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-S02</td>
+<td>Bloquear setor → tentar utilizar item</td>
+<td>1. Bloquear setor<br>2. Operador tenta utilizar item</td>
+<td>Botão Utilizar desativado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-S03</td>
+<td>Tentar excluir setor com itens</td>
+<td>1. Setor com qtd &gt; 0 → tentar excluir</td>
+<td>Toast de erro "Setor contém itens"</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-S04</td>
+<td>Reordenar setores via drag &amp; drop</td>
+<td>1. Arrastar setores para nova ordem</td>
+<td>Ordem salva e refletida na interface</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-casos-de-teste-estoque-e-movimentacoes">4. Casos de Teste – Estoque e Movimentações</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-E01</td>
+<td>Adicionar item novo ao estoque</td>
+<td>1. Nome + quantidade &gt; 0</td>
+<td>Item criado no setor 'estoque'</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-E02</td>
+<td>Incrementar item existente</td>
+<td>1. Adicionar mesmo item novamente</td>
+<td>Quantidade somada</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-E03</td>
+<td>Transferência via drag &amp; drop</td>
+<td>1. Arrastar item do estoque → setor<br>2. Informar qtd</td>
+<td>Deduz do estoque, adiciona ao setor</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-E04</td>
+<td>Transferência quantidade maior que disponível</td>
+<td>1. Tentar transferir qtd &gt; disponível</td>
+<td>Toast de erro, operação cancelada</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-E05</td>
+<td>Utilizar (consumir) item no próprio setor</td>
+<td>1. Operador clica Utilizar várias vezes</td>
+<td>Quantidade decrementa, log gerado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-casos-de-teste-sistema-de-solicitacoes">5. Casos de Teste – Sistema de Solicitações</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-Q01</td>
+<td>Operador solicita item zerado</td>
+<td>1. Item qtd=0 no setor → Solicitar +<br>2. Informar qtd</td>
+<td>Solicitação criada, log gerado</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-Q02</td>
+<td>Almoxarifado atende solicitação parcial</td>
+<td>1. Atender solicitação com qtd menor</td>
+<td>Deduz parcial do estoque, adiciona ao setor</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-Q03</td>
+<td>Solicitação sem estoque disponível</td>
+<td>1. Solicitar item inexistente ou qtd=0</td>
+<td>Permite criar (registro), mas atendimento falha</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-casos-de-teste-auditoria-e-logs">6. Casos de Teste – Auditoria e Logs</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Teste</th>
+<th>Passos</th>
+<th>Resultado Esperado</th>
+<th>Resultado Obtido</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-L01</td>
+<td>Verificação de log após login</td>
+<td>1. Fazer login</td>
+<td>Log com data/hora/IP/Device ID aparece</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+<tr>
+<td>TC-L02</td>
+<td>FIFO de logs (máximo 200)</td>
+<td>1. Gerar &gt; 200 ações</td>
+<td>Mantém apenas os 200 mais recentes</td>
+<td>OK</td>
+<td>Passou</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-resumo-geral-dos-testes">7. Resumo Geral dos Testes</h2>
+<ul>
+<li><strong>Total de casos planejados:</strong> 38  </li>
+<li><strong>Casos executados:</strong> 38  </li>
+<li><strong>Taxa de aprovação:</strong> 100% (todos passaram após correções pontuais durante desenvolvimento)  </li>
+<li><strong>Bugs críticos encontrados:</strong> 0 após fase final  </li>
+<li><strong>Observações finais:</strong>  </li>
+<li>Todos os fluxos principais foram validados com dados fictícios  </li>
+<li>Testes de limite (1000+ itens) simulados → performance aceitável até ~1200 itens  </li>
+<li>Recomendação pós-MVP: implementar testes automatizados (Jest) para regressão</li>
+</ul>
+<p><strong>Conclusão:</strong><br />
+O MVP foi considerado <strong>aprovado para uso piloto</strong> em 11/01/2026 após bateria completa de testes manuais.</p>
+<p><strong>Assinatura final:</strong><br />
+Klayton B. Prince<br />
+Desenvolvedor e Responsável por Qualidade<br />
+11 de janeiro de 2026</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

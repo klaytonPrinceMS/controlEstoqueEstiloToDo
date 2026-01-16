@@ -1,0 +1,1290 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../manual_de_uso_administrador/">
+      
+      
+        <link rel="next" href="../manual_de_instalacao/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Manual de uso - Almoxarife - Controle de estoque para Uso Local</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manual-do-usuario" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-header__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Controle de estoque para Uso Local
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manual de uso - Almoxarife
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-nav__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Controle de estoque para Uso Local
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_de_risco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analise de Risco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_de_software_das/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura de Software DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuiçoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes_aprendida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_administrador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Administradores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sumário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-como-fazer-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Como fazer Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tela-principal-do-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tela principal do Almoxarifado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-como-adicionar-materiais-ao-estoque-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Como adicionar materiais ao Estoque Central
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-como-atender-solicitacoes-de-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Como atender solicitações de setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-como-transferir-materiais-para-setores-drag-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como transferir materiais para setores (Drag &amp; Drop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-como-resgatar-materiais-de-setores-retornar-ao-estoque-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Como resgatar materiais de setores (retornar ao estoque central)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-como-bloqueardesbloquear-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Como bloquear/desbloquear setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-dicas-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Dicas importantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-o-que-fazer-em-caso-de-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. O que fazer em caso de problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_instalacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_operadores.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metricas do Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padroes_codificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrões de Codificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plano_de_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_de_mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_dasos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Casos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versionamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_de_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_levantamento_requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sumário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-como-fazer-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Como fazer Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tela-principal-do-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Tela principal do Almoxarifado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-como-adicionar-materiais-ao-estoque-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Como adicionar materiais ao Estoque Central
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-como-atender-solicitacoes-de-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Como atender solicitações de setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-como-transferir-materiais-para-setores-drag-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como transferir materiais para setores (Drag &amp; Drop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-como-resgatar-materiais-de-setores-retornar-ao-estoque-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Como resgatar materiais de setores (retornar ao estoque central)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-como-bloqueardesbloquear-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Como bloquear/desbloquear setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-dicas-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Dicas importantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-o-que-fazer-em-caso-de-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. O que fazer em caso de problema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="manual-do-usuario">📝 Manual do Usuário</h1>
+<p><strong>Sistema de Estoque Enterprise</strong><br />
+<strong>Público-alvo:</strong> Almoxarifado</p>
+<p><strong>Objetivo:</strong> Orientar o responsável pelo almoxarifado a gerenciar o estoque central, atender solicitações, realizar transferências e manter o controle eficiente dos materiais.</p>
+<p><strong>Importante:</strong><br />
+O sistema funciona 100% offline no navegador.<br />
+Faça logout ao finalizar o uso em computadores compartilhados.<br />
+Todos os dados são salvos apenas localmente (no navegador/computador).</p>
+<hr />
+<h2 id="sumario">Sumário</h2>
+<ol>
+<li>Como fazer Login  </li>
+<li>Tela principal do Almoxarifado  </li>
+<li>Como adicionar materiais ao Estoque Central  </li>
+<li>Como atender solicitações de setores  </li>
+<li>Como transferir materiais para setores (Drag &amp; Drop)  </li>
+<li>Como resgatar materiais de setores  </li>
+<li>Como bloquear/desbloquear setores  </li>
+<li>Dicas importantes  </li>
+<li>O que fazer em caso de problema  </li>
+</ol>
+<hr />
+<h3 id="1-como-fazer-login">1. Como fazer Login</h3>
+<ol>
+<li>Abra o navegador (recomendado: Chrome, Edge ou Firefox atualizado)</li>
+<li>Acesse o sistema</li>
+<li>Digite seu <strong>usuário</strong> e <strong>senha</strong></li>
+<li>Clique em <strong>Entrar no Sistema</strong></li>
+<li>No primeiro acesso: crie uma nova senha quando solicitado</li>
+</ol>
+<hr />
+<h3 id="2-tela-principal-do-almoxarifado">2. Tela principal do Almoxarifado</h3>
+<p>Após o login você verá:</p>
+<ul>
+<li>Seu nome e perfil "Almoxarifado" no topo</li>
+<li>Botão <strong>[Sair]</strong> no canto superior direito</li>
+<li>Abas ou seções principais:</li>
+<li><strong>Estoque Central</strong> (entrada e busca de materiais)</li>
+<li><strong>Solicitações</strong> (pedidos pendentes dos setores)</li>
+<li><strong>Setores Operacionais</strong> (visão de todos os setores)</li>
+<li><strong>Logs/Auditoria</strong> (visível apenas para administradores, mas pode ser consultado indiretamente)</li>
+</ul>
+<hr />
+<h3 id="3-como-adicionar-materiais-ao-estoque-central">3. Como adicionar materiais ao Estoque Central</h3>
+<ol>
+<li>Na seção <strong>Estoque Central</strong> ou <strong>Entrada</strong></li>
+<li>Preencha os campos:</li>
+<li><strong>Nome do material</strong> (ex: Parafuso M6, Fita Isolante)</li>
+<li><strong>Quantidade</strong> (número inteiro &gt; 0)</li>
+<li>Clique em <strong>Adicionar</strong> ou <strong>Confirmar Entrada</strong></li>
+<li>O material será adicionado ou a quantidade será incrementada se já existir</li>
+<li>Uma mensagem de sucesso (toast verde) aparece</li>
+</ol>
+<p><strong>Dica:</strong> Para adicionar rapidamente várias unidades do mesmo item, repita o processo ou use o botão <strong>+1</strong> ao lado do item existente.</p>
+<hr />
+<h3 id="4-como-atender-solicitacoes-de-setores">4. Como atender solicitações de setores</h3>
+<ol>
+<li>Vá até a seção <strong>Solicitações</strong> (ícone de sino 🔔 ou aba específica)</li>
+<li>Veja a lista de pedidos pendentes</li>
+<li>Para cada solicitação:</li>
+<li>Verifique o <strong>material</strong>, <strong>quantidade solicitada</strong> e <strong>setor de destino</strong></li>
+<li>Confira se há <strong>saldo suficiente</strong> no estoque central</li>
+<li>Clique em <strong>Atender</strong></li>
+<li>Na janela que abrir:</li>
+<li>Confirme ou ajuste a quantidade a ser enviada (pode ser parcial)</li>
+<li>Clique em <strong>Confirmar Atendimento</strong></li>
+<li>O sistema:</li>
+<li>Deduz automaticamente do estoque central</li>
+<li>Adiciona ao setor solicitado</li>
+<li>Remove a solicitação da lista</li>
+<li>Registra a ação no log</li>
+</ol>
+<p><strong>Para recusar:</strong>
+- Clique em <strong>Recusar</strong>
+- Opcionalmente informe o motivo
+- A solicitação será removida sem afetar o estoque</p>
+<hr />
+<h3 id="5-como-transferir-materiais-para-setores-drag-drop">5. Como transferir materiais para setores (Drag &amp; Drop)</h3>
+<p><strong>Método recomendado (mais rápido):</strong></p>
+<ol>
+<li>No <strong>Estoque Central</strong>, localize o material desejado</li>
+<li>Clique e segure (ou toque longo no celular) no cartão do material</li>
+<li>Arraste até o setor de destino desejado</li>
+<li>Solte o mouse (drop)</li>
+<li>Uma janela abrirá automaticamente:</li>
+<li>Mostra o material e o setor destino</li>
+<li>Quantidade sugerida = 1 (ajuste conforme necessário)</li>
+<li>Informe a <strong>quantidade</strong> a transferir</li>
+<li>Clique em <strong>Confirmar Envio</strong></li>
+<li>O sistema realiza a transferência e mostra confirmação</li>
+</ol>
+<p><strong>Método alternativo (botão):</strong>
+- Clique no botão <strong>Transferir</strong> ou <strong>Enviar</strong> no item
+- Selecione o setor destino
+- Informe a quantidade
+- Confirme</p>
+<hr />
+<h3 id="6-como-resgatar-materiais-de-setores-retornar-ao-estoque-central">6. Como resgatar materiais de setores (retornar ao estoque central)</h3>
+<ol>
+<li>Vá até o setor que possui o material</li>
+<li>Localize o item desejado</li>
+<li>Clique no botão <strong>Resgatar</strong> ou <strong>Retornar</strong></li>
+<li>Informe a quantidade a ser devolvida</li>
+<li>Confirme a operação</li>
+<li>O sistema:</li>
+<li>Diminui a quantidade no setor</li>
+<li>Adiciona ao Estoque Central</li>
+<li>Registra a devolução no log</li>
+</ol>
+<hr />
+<h3 id="7-como-bloqueardesbloquear-setores">7. Como bloquear/desbloquear setores</h3>
+<ol>
+<li>Na visão geral dos <strong>Setores Operacionais</strong></li>
+<li>Localize o setor desejado</li>
+<li>Clique no ícone de cadeado (🔓 / 🔒) ao lado do nome do setor</li>
+<li>Confirme a ação no pop-up</li>
+<li>O setor ficará bloqueado (não permite consumo nem novas solicitações) ou desbloqueado</li>
+</ol>
+<p><strong>Efeito do bloqueio:</strong>
+- Operadores não conseguem utilizar materiais
+- Novas solicitações ficam impedidas
+- Transferências administrativas ainda são permitidas</p>
+<hr />
+<h3 id="8-dicas-importantes">8. Dicas importantes</h3>
+<ul>
+<li>Sempre verifique o <strong>saldo real</strong> antes de atender solicitações</li>
+<li>Use o <strong>drag &amp; drop</strong> para transferências rápidas — é o método mais ágil</li>
+<li>Registre <strong>todas</strong> as movimentações no sistema (entrada, saída, transferência, resgate)</li>
+<li>Atualize a página (F5) se perceber que alguma informação não atualizou</li>
+<li>Mantenha os logs visíveis para acompanhamento de movimentações recentes</li>
+<li>Oriente os operadores a registrarem imediatamente o consumo após receberem materiais</li>
+<li>Faça backup periódico dos dados (exportação JSON) — converse com o administrador</li>
+</ul>
+<hr />
+<h3 id="9-o-que-fazer-em-caso-de-problema">9. O que fazer em caso de problema</h3>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>O que fazer</th>
+<th>Quem contactar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solicitação não aparece</td>
+<td>Atualize a página (F5)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Material não deduziu após atendimento</td>
+<td>Verifique se confirmou corretamente</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>Setor bloqueado por engano</td>
+<td>Desbloqueie imediatamente</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Sistema lento ou não salva</td>
+<td>Verifique espaço no LocalStorage</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>Preciso resetar algo</td>
+<td>Use apenas com muita cautela e confirmação</td>
+<td>Administrador</td>
+</tr>
+<tr>
+<td>Dúvida sobre movimentação registrada</td>
+<td>Consulte os logs recentes</td>
+<td>Administrador</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Boa gestão do almoxarifado!</strong><br />
+Seu trabalho é fundamental para manter o controle e o fluxo correto de materiais em todos os setores.</p>
+<p>Qualquer dúvida grave, contate o <strong>Administrador</strong> do sistema.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

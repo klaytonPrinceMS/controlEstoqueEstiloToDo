@@ -1,0 +1,5253 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../visao_de_produto/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Levantamento de Requisitos - Controle de estoque para Uso Local</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacao-de-levantamento-de-requisitos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-header__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Controle de estoque para Uso Local
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Levantamento de Requisitos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-nav__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Controle de estoque para Uso Local
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_de_risco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analise de Risco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_de_software_das/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura de Software DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuiçoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes_aprendida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_administrador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Administradores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_almoxarife/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_instalacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_operadores.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metricas do Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padroes_codificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrões de Codificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plano_de_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_de_mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_dasos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Casos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versionamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_de_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#indice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📑 Índice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Escopo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Stakeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-definicoes-e-acronimos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Definições e Acrônimos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visao-geral-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Visão Geral do Sistema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão Geral do Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perspectiva-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Perspectiva do Produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-funcoes-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Funções do Produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-caracteristicas-dos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Características dos Usuários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Características dos Usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perfil-administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Administrador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfil-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Almoxarifado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfil-operador-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Operador de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-restricoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Restrições
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Requisitos Funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Requisitos Funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Autenticação e Controle de Acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Autenticação e Controle de Acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-001-login-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-001: Login de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-002-alteracao-de-senha-no-primeiro-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-002: Alteração de Senha no Primeiro Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-003-logout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-003: Logout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-004-controle-de-permissoes-por-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-004: Controle de Permissões por Perfil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-gestao-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Gestão de Usuários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Gestão de Usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-005-criar-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-005: Criar Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-006-bloqueardesbloquear-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-006: Bloquear/Desbloquear Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-007-resetar-senha-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-007: Resetar Senha de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-008-excluir-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-008: Excluir Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-009-visualizar-lista-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-009: Visualizar Lista de Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-gestao-de-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Gestão de Setores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Gestão de Setores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-010-criar-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-010: Criar Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-011-editar-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-011: Editar Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-012-excluir-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-012: Excluir Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-013-reordenar-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-013: Reordenar Setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-014-bloqueardesbloquear-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-014: Bloquear/Desbloquear Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-gestao-de-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Gestão de Estoque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Gestão de Estoque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-015-adicionar-item-ao-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-015: Adicionar Item ao Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-016-buscar-item-no-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-016: Buscar Item no Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-017-incrementar-quantidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-017: Incrementar Quantidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-018-excluir-item-zerado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-018: Excluir Item Zerado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-sistema-de-solicitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Sistema de Solicitações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Sistema de Solicitações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-019-solicitar-reposicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-019: Solicitar Reposição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-020-solicitar-item-novo-busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-020: Solicitar Item Novo (Busca)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-021-atender-solicitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-021: Atender Solicitação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-022-recusar-solicitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-022: Recusar Solicitação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-transferencia-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Transferência de Materiais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Transferência de Materiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-023-transferir-via-drag-and-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-023: Transferir via Drag-and-Drop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-024-resgatar-material-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-024: Resgatar Material de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-utilizacao-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Utilização de Materiais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 Utilização de Materiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-025-utilizar-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-025: Utilizar Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-auditoria-e-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Auditoria e Logs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Auditoria e Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-026-registrar-logs-de-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-026: Registrar Logs de Ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-027-visualizar-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-027: Visualizar Auditoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-interface-e-usabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Interface e Usabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 Interface e Usabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-028-filtro-de-itens-por-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-028: Filtro de Itens por Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-029-notificacoes-toast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-029: Notificações Toast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-030-reset-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-030: Reset de Emergência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-031-reset-total-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-031: Reset Total do Sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-requisitos-nao-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Requisitos Não-Funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Requisitos Não-Funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Desempenho
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Desempenho">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-001-tempo-de-resposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-001: Tempo de Resposta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-002-capacidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-002: Capacidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-usabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Usabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Usabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-003-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-003: Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-004-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-004: Acessibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-compatibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Compatibilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Compatibilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-005-navegadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-005: Navegadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-006-dispositivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-006: Dispositivos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Segurança
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-007-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-007: Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-008-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-008: Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Manutenibilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Manutenibilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-009-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-009: Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-010-documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-010: Documentação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-confiabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Confiabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Confiabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-011-persistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-011: Persistência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-012-disponibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-012: Disponibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Casos de Uso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uc-001-realizar-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-001: Realizar Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-002-criar-novo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-002: Criar Novo Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-003-adicionar-item-ao-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-003: Adicionar Item ao Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-004-solicitar-reposicao-de-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-004: Solicitar Reposição de Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-005-transferir-material-via-drag-and-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-005: Transferir Material via Drag-and-Drop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-modelo-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Modelo de Dados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Modelo de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-estrutura-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Estrutura Geral
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-entidade-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Entidade: Usuario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Entidade: Usuario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-entidade-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Entidade: Setor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Entidade: Setor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setores-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setores Especiais:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-entidade-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Entidade: Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Regras de Negócio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rn-001-exclusividade-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-001: Exclusividade de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-002-usuario-admin-indelevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-002: Usuário Admin Indelével
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-003-setor-estoque-fixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-003: Setor Estoque Fixo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-004-bloqueio-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-004: Bloqueio de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-005-exclusao-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-005: Exclusão de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-006-validacao-de-transferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-006: Validação de Transferência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-007-solicitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-007: Solicitações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-008-primeiro-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-008: Primeiro Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-009-logs-fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-009: Logs FIFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-010-item-zerado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-010: Item Zerado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-011-agregacao-de-itens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-011: Agregação de Itens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-012-rastreamento-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-012: Rastreamento Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-interface-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Interface do Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Interface do Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-wireframes-de-baixa-fidelidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Wireframes de Baixa Fidelidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 Wireframes de Baixa Fidelidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tela-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard Admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-operador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard Operador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-paleta-de-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Paleta de Cores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-tipografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Tipografia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-componentes-reutilizaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Componentes Reutilizáveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Componentes Reutilizáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao-de-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartão de Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modal-padrao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modal Padrão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toast-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Toast Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-armazenamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Armazenamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-rastreamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Rastreamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-protecao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Proteção de Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-consideracoes-tecnicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Considerações Técnicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Considerações Técnicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-fluxo-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Fluxo de Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-deteccao-de-ip-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Detecção de IP Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-geracao-de-device-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Geração de Device ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-glossario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Glossário
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#indice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📑 Índice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introdução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Escopo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-stakeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Stakeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-definicoes-e-acronimos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Definições e Acrônimos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visao-geral-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Visão Geral do Sistema
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Visão Geral do Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-perspectiva-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Perspectiva do Produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-funcoes-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Funções do Produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-caracteristicas-dos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Características dos Usuários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Características dos Usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perfil-administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Administrador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfil-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Almoxarifado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfil-operador-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfil: Operador de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-restricoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Restrições
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-requisitos-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Requisitos Funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Requisitos Funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-autenticacao-e-controle-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Autenticação e Controle de Acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Autenticação e Controle de Acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-001-login-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-001: Login de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-002-alteracao-de-senha-no-primeiro-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-002: Alteração de Senha no Primeiro Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-003-logout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-003: Logout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-004-controle-de-permissoes-por-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-004: Controle de Permissões por Perfil
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-gestao-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Gestão de Usuários
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Gestão de Usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-005-criar-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-005: Criar Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-006-bloqueardesbloquear-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-006: Bloquear/Desbloquear Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-007-resetar-senha-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-007: Resetar Senha de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-008-excluir-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-008: Excluir Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-009-visualizar-lista-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-009: Visualizar Lista de Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-gestao-de-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Gestão de Setores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Gestão de Setores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-010-criar-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-010: Criar Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-011-editar-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-011: Editar Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-012-excluir-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-012: Excluir Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-013-reordenar-setores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-013: Reordenar Setores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-014-bloqueardesbloquear-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-014: Bloquear/Desbloquear Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-gestao-de-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Gestão de Estoque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Gestão de Estoque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-015-adicionar-item-ao-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-015: Adicionar Item ao Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-016-buscar-item-no-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-016: Buscar Item no Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-017-incrementar-quantidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-017: Incrementar Quantidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-018-excluir-item-zerado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-018: Excluir Item Zerado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-sistema-de-solicitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Sistema de Solicitações
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Sistema de Solicitações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-019-solicitar-reposicao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-019: Solicitar Reposição
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-020-solicitar-item-novo-busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-020: Solicitar Item Novo (Busca)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-021-atender-solicitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-021: Atender Solicitação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-022-recusar-solicitacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-022: Recusar Solicitação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-transferencia-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Transferência de Materiais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Transferência de Materiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-023-transferir-via-drag-and-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-023: Transferir via Drag-and-Drop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-024-resgatar-material-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-024: Resgatar Material de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-utilizacao-de-materiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Utilização de Materiais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 Utilização de Materiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-025-utilizar-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-025: Utilizar Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-auditoria-e-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Auditoria e Logs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 Auditoria e Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-026-registrar-logs-de-acoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-026: Registrar Logs de Ações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-027-visualizar-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-027: Visualizar Auditoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-interface-e-usabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Interface e Usabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.9 Interface e Usabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rf-028-filtro-de-itens-por-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-028: Filtro de Itens por Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-029-notificacoes-toast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-029: Notificações Toast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-030-reset-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-030: Reset de Emergência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-031-reset-total-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF-031: Reset Total do Sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-requisitos-nao-funcionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Requisitos Não-Funcionais
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Requisitos Não-Funcionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Desempenho
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Desempenho">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-001-tempo-de-resposta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-001: Tempo de Resposta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-002-capacidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-002: Capacidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-usabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Usabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Usabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-003-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-003: Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-004-acessibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-004: Acessibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-compatibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Compatibilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Compatibilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-005-navegadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-005: Navegadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-006-dispositivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-006: Dispositivos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Segurança
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-007-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-007: Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-008-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-008: Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Manutenibilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Manutenibilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-009-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-009: Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-010-documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-010: Documentação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-confiabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Confiabilidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 Confiabilidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rnf-011-persistencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-011: Persistência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rnf-012-disponibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RNF-012: Disponibilidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Casos de Uso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uc-001-realizar-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-001: Realizar Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-002-criar-novo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-002: Criar Novo Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-003-adicionar-item-ao-estoque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-003: Adicionar Item ao Estoque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-004-solicitar-reposicao-de-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-004: Solicitar Reposição de Material
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uc-005-transferir-material-via-drag-and-drop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UC-005: Transferir Material via Drag-and-Drop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-modelo-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Modelo de Dados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Modelo de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-estrutura-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Estrutura Geral
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-entidade-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Entidade: Usuario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Entidade: Usuario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-entidade-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Entidade: Setor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Entidade: Setor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setores-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setores Especiais:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-entidade-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Entidade: Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Regras de Negócio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rn-001-exclusividade-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-001: Exclusividade de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-002-usuario-admin-indelevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-002: Usuário Admin Indelével
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-003-setor-estoque-fixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-003: Setor Estoque Fixo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-004-bloqueio-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-004: Bloqueio de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-005-exclusao-de-setor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-005: Exclusão de Setor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-006-validacao-de-transferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-006: Validação de Transferência
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-007-solicitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-007: Solicitações
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-008-primeiro-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-008: Primeiro Acesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-009-logs-fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-009: Logs FIFO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-010-item-zerado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-010: Item Zerado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-011-agregacao-de-itens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-011: Agregação de Itens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rn-012-rastreamento-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RN-012: Rastreamento Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-interface-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Interface do Usuário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Interface do Usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-wireframes-de-baixa-fidelidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Wireframes de Baixa Fidelidade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 Wireframes de Baixa Fidelidade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tela-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tela de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard Admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-operador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard Operador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-paleta-de-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Paleta de Cores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-tipografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Tipografia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-componentes-reutilizaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Componentes Reutilizáveis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Componentes Reutilizáveis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao-de-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartão de Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modal-padrao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modal Padrão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toast-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Toast Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-armazenamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Armazenamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-rastreamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Rastreamento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-protecao-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Proteção de Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-consideracoes-tecnicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Considerações Técnicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Considerações Técnicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-fluxo-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 Fluxo de Dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-deteccao-de-ip-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Detecção de IP Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104-geracao-de-device-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 Geração de Device ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-glossario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Glossário
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documentacao-de-levantamento-de-requisitos">📋 Documentação de Levantamento de Requisitos</h1>
+<hr />
+<h2 id="indice">📑 Índice</h2>
+<ol>
+<li><a href="#1-introdução">Introdução</a></li>
+<li><a href="#2-visão-geral-do-sistema">Visão Geral do Sistema</a></li>
+<li><a href="#3-requisitos-funcionais">Requisitos Funcionais</a></li>
+<li><a href="#4-requisitos-não-funcionais">Requisitos Não-Funcionais</a></li>
+<li><a href="#5-casos-de-uso">Casos de Uso</a></li>
+<li><a href="#6-modelo-de-dados">Modelo de Dados</a></li>
+<li><a href="#7-regras-de-negócio">Regras de Negócio</a></li>
+<li><a href="#8-interface-do-usuário">Interface do Usuário</a></li>
+<li><a href="#9-segurança">Segurança</a></li>
+<li><a href="#10-considerações-técnicas">Considerações Técnicas</a></li>
+<li><a href="#11-glossário">Glossário</a></li>
+</ol>
+<hr />
+<h2 id="1-introducao">1. Introdução</h2>
+<h3 id="11-proposito">1.1 Propósito</h3>
+<p>Este documento especifica os requisitos funcionais e não-funcionais para o desenvolvimento do Sistema de Estoque Enterprise v6.0, uma aplicação web para gestão multi-setorial de estoque com controle de usuários e auditoria completa.</p>
+<h3 id="12-escopo">1.2 Escopo</h3>
+<p>O sistema deve permitir:
+- Controle centralizado de estoque
+- Gestão multi-usuário com níveis de permissão
+- Distribuição de materiais entre setores
+- Sistema de solicitações e aprovações
+- Auditoria completa de movimentações
+- Funcionamento 100% offline</p>
+<h3 id="13-stakeholders">1.3 Stakeholders</h3>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Responsabilidade</th>
+<th>Interesse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Administrador</td>
+<td>Gestão completa do sistema</td>
+<td>Controle total e auditoria</td>
+</tr>
+<tr>
+<td>Almoxarifado</td>
+<td>Gestão de estoque central</td>
+<td>Distribuição eficiente</td>
+</tr>
+<tr>
+<td>Operador de Setor</td>
+<td>Uso de materiais</td>
+<td>Acesso rápido aos recursos</td>
+</tr>
+<tr>
+<td>Auditoria</td>
+<td>Fiscalização</td>
+<td>Rastreabilidade completa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-definicoes-e-acronimos">1.4 Definições e Acrônimos</h3>
+<ul>
+<li><strong>RF</strong> - Requisito Funcional</li>
+<li><strong>RNF</strong> - Requisito Não-Funcional</li>
+<li><strong>CRUD</strong> - Create, Read, Update, Delete</li>
+<li><strong>SPA</strong> - Single Page Application</li>
+<li><strong>WebRTC</strong> - Web Real-Time Communication</li>
+</ul>
+<hr />
+<h2 id="2-visao-geral-do-sistema">2. Visão Geral do Sistema</h2>
+<h3 id="21-perspectiva-do-produto">2.1 Perspectiva do Produto</h3>
+<p>Sistema standalone de gestão de estoque que opera integralmente no navegador do cliente, sem necessidade de servidor backend ou conexão com internet.</p>
+<h3 id="22-funcoes-do-produto">2.2 Funções do Produto</h3>
+<pre><code>┌────────────────────────────────────────────────┐
+│         Sistema de Estoque Enterprise          │
+├────────────────────────────────────────────────┤
+│                                                │
+│  ┌──────────────┐  ┌──────────────┐            │
+│  │  Autenticação│  │   Gestão de  │            │
+│  │  Multi-Nível │  │   Usuários   │            │
+│  └──────────────┘  └──────────────┘            │
+│                                                │
+│  ┌──────────────┐  ┌──────────────┐            │
+│  │   Controle   │  │   Sistema de │            │
+│  │  de Estoque  │  │  Solicitações│            │
+│  └──────────────┘  └──────────────┘            │
+│                                                │
+│  ┌──────────────┐  ┌──────────────┐            │
+│  │ Transferência│  │   Auditoria  │            │
+│  │  de Materiais│  │   e Logs     │            │
+│  └──────────────┘  └──────────────┘            │
+│                                                │
+└────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="23-caracteristicas-dos-usuarios">2.3 Características dos Usuários</h3>
+<h4 id="perfil-administrador">Perfil: Administrador</h4>
+<ul>
+<li><strong>Experiência:</strong> Avançada em sistemas</li>
+<li><strong>Frequência de Uso:</strong> Diária</li>
+<li><strong>Funções Críticas:</strong> Gestão completa</li>
+</ul>
+<h4 id="perfil-almoxarifado">Perfil: Almoxarifado</h4>
+<ul>
+<li><strong>Experiência:</strong> Intermediária</li>
+<li><strong>Frequência de Uso:</strong> Diária/contínua</li>
+<li><strong>Funções Críticas:</strong> Gestão de estoque e distribuição</li>
+</ul>
+<h4 id="perfil-operador-de-setor">Perfil: Operador de Setor</h4>
+<ul>
+<li><strong>Experiência:</strong> Básica</li>
+<li><strong>Frequência de Uso:</strong> Conforme necessidade</li>
+<li><strong>Funções Críticas:</strong> Solicitação e uso de materiais</li>
+</ul>
+<h3 id="24-restricoes">2.4 Restrições</h3>
+<ul>
+<li>Deve funcionar sem conexão com internet</li>
+<li>Deve ser compatível com navegadores modernos (Chrome 90+, Firefox 88+, Edge 90+, Safari 14+)</li>
+<li>Sem dependências de bibliotecas externas</li>
+<li>Armazenamento limitado ao LocalStorage do navegador (~5-10MB)</li>
+</ul>
+<hr />
+<h2 id="3-requisitos-funcionais">3. Requisitos Funcionais</h2>
+<h3 id="31-autenticacao-e-controle-de-acesso">3.1 Autenticação e Controle de Acesso</h3>
+<h4 id="rf-001-login-de-usuario">RF-001: Login de Usuário</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> O sistema deve permitir login com usuário e senha.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Sistema valida credenciais contra banco local
+- Exibe mensagem de erro para credenciais inválidas
+- Bloqueia acesso de usuários marcados como bloqueados
+- Registra data/hora/IP/Device ID do acesso</p>
+<p><strong>Fluxo Principal:</strong></p>
+<pre><code>1. Usuário insere login e senha
+2. Sistema valida credenciais
+3. Sistema verifica se usuário está bloqueado
+4. Sistema obtém IP local e Device ID
+5. Sistema registra acesso em log
+6. Sistema redireciona para interface apropriada
+</code></pre>
+<p><strong>Fluxos Alternativos:</strong>
+- FA-001: Credenciais inválidas → Exibe erro
+- FA-002: Usuário bloqueado → Exibe erro e não permite acesso
+- FA-003: Primeiro acesso → Força alteração de senha</p>
+<h4 id="rf-002-alteracao-de-senha-no-primeiro-acesso">RF-002: Alteração de Senha no Primeiro Acesso</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Sistema deve forçar alteração de senha no primeiro login.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Exibe prompt para nova senha
+- Valida senha não vazia
+- Atualiza hash da senha
+- Marca flag <code>primeiroAcesso</code> como false</p>
+<h4 id="rf-003-logout">RF-003: Logout</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Usuário deve poder sair do sistema.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Registra logout em log
+- Limpa sessão do usuário
+- Retorna para tela de login
+- Limpa campos de login</p>
+<h4 id="rf-004-controle-de-permissoes-por-perfil">RF-004: Controle de Permissões por Perfil</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Sistema deve restringir funcionalidades por perfil.</p>
+<p><strong>Matriz de Permissões:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funcionalidade</th>
+<th>Admin</th>
+<th>Almoxarifado</th>
+<th>Operador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Criar usuários</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Criar setores</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Bloquear setores</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Adicionar ao estoque</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Transferir materiais</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Atender solicitações</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Resgatar de setores</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Solicitar materiais</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Utilizar materiais</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅*</td>
+</tr>
+<tr>
+<td>Visualizar auditoria</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Resetar sistema</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>*Apenas no próprio setor</p>
+<hr />
+<h3 id="32-gestao-de-usuarios">3.2 Gestão de Usuários</h3>
+<h4 id="rf-005-criar-usuario">RF-005: Criar Usuário</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin deve poder criar novos usuários.</p>
+<p><strong>Campos Obrigatórios:</strong>
+- Login (único)
+- Senha
+- Tipo (admin, almoxarifado, setor)
+- Setor (se tipo = setor)</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Valida login único
+- Hash de senha aplicado
+- Flag <code>primeiroAcesso</code> = true
+- Registro em log de auditoria</p>
+<h4 id="rf-006-bloqueardesbloquear-usuario">RF-006: Bloquear/Desbloquear Usuário</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin deve poder bloquear acesso de usuários.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Alterna flag <code>bloqueado</code>
+- Registra ação em log
+- Impede login de usuários bloqueados</p>
+<h4 id="rf-007-resetar-senha-de-usuario">RF-007: Resetar Senha de Usuário</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin deve poder resetar senha de qualquer usuário.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Permite definir senha temporária
+- Aplica hash
+- Marca <code>primeiroAcesso</code> = true
+- Registra ação em log</p>
+<h4 id="rf-008-excluir-usuario">RF-008: Excluir Usuário</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin deve poder excluir usuários (exceto admin).</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Solicita confirmação
+- Impede exclusão do usuário admin
+- Remove permanentemente do banco
+- Registra ação em log</p>
+<h4 id="rf-009-visualizar-lista-de-usuarios">RF-009: Visualizar Lista de Usuários</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin deve visualizar todos os usuários cadastrados.</p>
+<p><strong>Informações Exibidas:</strong>
+- Login
+- Tipo
+- Setor vinculado
+- Último IP de acesso
+- Device ID
+- Última data/hora de acesso
+- Status (bloqueado/ativo)</p>
+<hr />
+<h3 id="33-gestao-de-setores">3.3 Gestão de Setores</h3>
+<h4 id="rf-010-criar-setor">RF-010: Criar Setor</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin deve poder criar novos setores.</p>
+<p><strong>Campos:</strong>
+- Nome (obrigatório)
+- Emoji (opcional, padrão: 🏢)
+- Cor de fundo (padrão: #ffffff)</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Nome não pode ser vazio
+- Emoji deve ser caractere único
+- Cor deve ser hex válido
+- Setor recebe ordem sequencial
+- Registra em log</p>
+<h4 id="rf-011-editar-setor">RF-011: Editar Setor</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin deve poder editar setores existentes.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Não pode editar setor "Estoque Central" (fixo)
+- Pode alterar nome, emoji e cor
+- Mantém ID e ordem
+- Registra em log</p>
+<h4 id="rf-012-excluir-setor">RF-012: Excluir Setor</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin deve poder excluir setores vazios.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Verifica se setor tem itens (qtd &gt; 0)
+- Impede exclusão se tiver itens
+- Não pode excluir setor fixo
+- Remove do banco
+- Registra em log</p>
+<h4 id="rf-013-reordenar-setores">RF-013: Reordenar Setores</h4>
+<p><strong>Prioridade:</strong> Baixa<br />
+<strong>Descrição:</strong> Admin/Almoxarifado deve poder reordenar setores via drag-drop.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Apenas setores não-fixos podem mover
+- Atualiza campo <code>ordem</code> automaticamente
+- Persiste nova ordem
+- Interface reflete imediatamente</p>
+<h4 id="rf-014-bloqueardesbloquear-setor">RF-014: Bloquear/Desbloquear Setor</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin/Almoxarifado deve poder bloquear setores.</p>
+<p><strong>Efeitos do Bloqueio:</strong>
+- Impede utilização de materiais
+- Impede solicitações
+- Não impede transferências admin
+- Visual diferenciado (ícone 🔒)
+- Registra em log</p>
+<hr />
+<h3 id="34-gestao-de-estoque">3.4 Gestão de Estoque</h3>
+<h4 id="rf-015-adicionar-item-ao-estoque">RF-015: Adicionar Item ao Estoque</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin/Almoxarifado deve adicionar itens ao estoque central.</p>
+<p><strong>Campos:</strong>
+- Nome do item (obrigatório)
+- Quantidade (obrigatório, &gt; 0)</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Se item existe, incrementa quantidade
+- Se não existe, cria novo registro
+- Item sempre no setor "estoque"
+- Registra em log com quantidade</p>
+<h4 id="rf-016-buscar-item-no-estoque">RF-016: Buscar Item no Estoque</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Sistema deve permitir busca de itens.</p>
+<p><strong>Tipos de Busca:</strong>
+1. <strong>Admin/Almoxarifado:</strong> Busca inline no setor estoque (filtra cartões)
+2. <strong>Operador:</strong> Busca global dedicada com resultados disponíveis</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Busca por substring (case-insensitive)
+- Atualiza resultados em tempo real
+- Exibe apenas itens com qtd &gt; 0 (para operadores)
+- Permite solicitar diretamente da busca</p>
+<h4 id="rf-017-incrementar-quantidade">RF-017: Incrementar Quantidade</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode adicionar unidades a item existente.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Botão "+1" visível em cada item do estoque
+- Incrementa quantidade
+- Atualiza interface imediatamente
+- Não registra em log (operação menor)</p>
+<h4 id="rf-018-excluir-item-zerado">RF-018: Excluir Item Zerado</h4>
+<p><strong>Prioridade:</strong> Baixa<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode excluir registros com quantidade zero.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Botão "Excluir" só aparece se qtd = 0
+- Solicita confirmação
+- Remove registro do banco
+- Atualiza interface</p>
+<hr />
+<h3 id="35-sistema-de-solicitacoes">3.5 Sistema de Solicitações</h3>
+<h4 id="rf-019-solicitar-reposicao">RF-019: Solicitar Reposição</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Operador pode solicitar reposição de item zerado em seu setor.</p>
+<p><strong>Fluxo:</strong></p>
+<pre><code>1. Item zerado exibe botão &quot;Solicitar +&quot;
+2. Modal exibe disponibilidade no estoque
+3. Operador define quantidade
+4. Sistema cria registro em &quot;solicitacao&quot;
+5. Registra em log
+6. Notifica sucesso
+</code></pre>
+<p><strong>Critérios de Aceitação:</strong>
+- Verifica disponibilidade no estoque central
+- Valida quantidade &lt;= disponível
+- Cria item com setorId = "solicitacao"
+- Guarda setor destino em campo <code>destino</code>
+- Registra solicitante em log</p>
+<h4 id="rf-020-solicitar-item-novo-busca">RF-020: Solicitar Item Novo (Busca)</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Operador pode solicitar item que não tem em seu setor.</p>
+<p><strong>Fluxo:</strong></p>
+<pre><code>1. Operador busca no estoque central
+2. Clica em &quot;Solicitar&quot; no item desejado
+3. Define quantidade
+4. Sistema cria solicitação
+</code></pre>
+<p><strong>Critérios de Aceitação:</strong>
+- Mesmas validações do RF-019
+- Permite buscar qualquer item do estoque
+- Limpa busca após solicitar</p>
+<h4 id="rf-021-atender-solicitacao">RF-021: Atender Solicitação</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode aprovar solicitações.</p>
+<p><strong>Fluxo:</strong></p>
+<pre><code>1. Visualiza solicitações pendentes
+2. Verifica estoque disponível
+3. Clica em &quot;Atender&quot;
+4. Sistema:
+   - Deduz do estoque central
+   - Adiciona ao setor destino
+   - Remove solicitação
+   - Registra em log
+</code></pre>
+<p><strong>Critérios de Aceitação:</strong>
+- Valida estoque suficiente
+- Cria ou incrementa item no setor destino
+- Remove registro de solicitação
+- Registra ação em log</p>
+<h4 id="rf-022-recusar-solicitacao">RF-022: Recusar Solicitação</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode recusar solicitações.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Solicita confirmação
+- Remove registro de solicitação
+- Registra recusa em log
+- Não afeta estoque</p>
+<hr />
+<h3 id="36-transferencia-de-materiais">3.6 Transferência de Materiais</h3>
+<h4 id="rf-023-transferir-via-drag-and-drop">RF-023: Transferir via Drag-and-Drop</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode arrastar itens do estoque para setores.</p>
+<p><strong>Fluxo:</strong></p>
+<pre><code>1. Arrasta item do estoque
+2. Solta em setor destino
+3. Modal solicita quantidade
+4. Sistema:
+   - Deduz do estoque
+   - Adiciona ao setor
+   - Registra transferência
+</code></pre>
+<p><strong>Critérios de Aceitação:</strong>
+- Apenas itens do estoque são arrastáveis
+- Não permite drop no próprio estoque
+- Não permite drop em "solicitacao"
+- Valida setor destino não bloqueado
+- Valida quantidade &lt;= disponível
+- Cria ou incrementa item no destino</p>
+<h4 id="rf-024-resgatar-material-de-setor">RF-024: Resgatar Material de Setor</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Admin/Almoxarifado pode retornar materiais ao estoque.</p>
+<p><strong>Fluxo:</strong></p>
+<pre><code>1. Clica em &quot;Resgatar&quot; em item de setor
+2. Define quantidade
+3. Sistema:
+   - Deduz do setor
+   - Retorna ao estoque
+   - Registra resgate
+</code></pre>
+<p><strong>Critérios de Aceitação:</strong>
+- Botão só aparece para Admin/Almoxarifado
+- Valida quantidade &lt;= disponível no setor
+- Remove item se quantidade zerada
+- Adiciona ao estoque central
+- Registra em log</p>
+<hr />
+<h3 id="37-utilizacao-de-materiais">3.7 Utilização de Materiais</h3>
+<h4 id="rf-025-utilizar-material">RF-025: Utilizar Material</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Operador pode consumir materiais do seu setor.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Botão "Utilizar" só aparece no próprio setor
+- Decrementa quantidade em 1
+- Verifica se setor está bloqueado
+- Se qtd chega a 0, muda visual do cartão
+- Registra uso em log</p>
+<hr />
+<h3 id="38-auditoria-e-logs">3.8 Auditoria e Logs</h3>
+<h4 id="rf-026-registrar-logs-de-acoes">RF-026: Registrar Logs de Ações</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Sistema deve registrar todas as ações relevantes.</p>
+<p><strong>Formato do Log:</strong></p>
+<pre><code>[DD/MM/YYYY HH:MM:SS] Usuario (IP: xxx.xxx.xxx.xxx | MAC: ID-xxxxx): Ação
+</code></pre>
+<p><strong>Ações Registradas:</strong>
+- Login/Logout
+- Criação/exclusão/bloqueio de usuários
+- Reset de senhas
+- Criação/edição/exclusão de setores
+- Bloqueio/desbloqueio de setores
+- Adição de itens ao estoque
+- Transferências de materiais
+- Solicitações (criar/atender/recusar)
+- Resgates
+- Utilizações de materiais
+- Reset de sistema</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Log inclui timestamp completo
+- Log inclui IP local do usuário
+- Log inclui Device ID
+- Logs mantidos em FIFO (200 últimos)
+- Exibidos em ordem decrescente (mais recente primeiro)</p>
+<h4 id="rf-027-visualizar-auditoria">RF-027: Visualizar Auditoria</h4>
+<p><strong>Prioridade:</strong> Alta<br />
+<strong>Descrição:</strong> Admin deve visualizar logs completos.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Acesso exclusivo do Admin
+- Exibe em painel dedicado
+- Formato monospace para legibilidade
+- Scroll para logs antigos
+- Atualiza automaticamente após ações</p>
+<hr />
+<h3 id="39-interface-e-usabilidade">3.9 Interface e Usabilidade</h3>
+<h4 id="rf-028-filtro-de-itens-por-setor">RF-028: Filtro de Itens por Setor</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Operador deve poder filtrar itens em seu setor.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Campo de busca dentro de cada setor
+- Filtra em tempo real (oninput)
+- Oculta itens não correspondentes
+- Busca case-insensitive</p>
+<h4 id="rf-029-notificacoes-toast">RF-029: Notificações Toast</h4>
+<p><strong>Prioridade:</strong> Média<br />
+<strong>Descrição:</strong> Sistema deve exibir feedback visual de ações.</p>
+<p><strong>Tipos:</strong>
+- Sucesso (verde)
+- Erro (vermelho)</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Aparece no canto inferior direito
+- Desaparece após 3 segundos
+- Empilha múltiplas notificações
+- Animação de entrada suave</p>
+<h4 id="rf-030-reset-de-emergencia">RF-030: Reset de Emergência</h4>
+<p><strong>Prioridade:</strong> Baixa<br />
+<strong>Descrição:</strong> Permitir reset completo via tela de login.</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Botão discreto na tela de login
+- Solicita confirmação dupla
+- Limpa todo LocalStorage
+- Recarrega página
+- Restaura usuário admin padrão</p>
+<h4 id="rf-031-reset-total-do-sistema">RF-031: Reset Total do Sistema</h4>
+<p><strong>Prioridade:</strong> Baixa<br />
+<strong>Descrição:</strong> Admin pode resetar dados mantendo estrutura.</p>
+<p><strong>Opções:</strong>
+1. Manter usuários cadastrados
+2. Manter apenas admin</p>
+<p><strong>Critérios de Aceitação:</strong>
+- Solicita confirmação múltipla
+- Pergunta sobre usuários
+- Limpa todos os itens
+- Remove setores não-fixos
+- Limpa logs
+- Registra reset antes de limpar
+- Recarrega sistema</p>
+<hr />
+<h2 id="4-requisitos-nao-funcionais">4. Requisitos Não-Funcionais</h2>
+<h3 id="41-desempenho">4.1 Desempenho</h3>
+<h4 id="rnf-001-tempo-de-resposta">RNF-001: Tempo de Resposta</h4>
+<ul>
+<li>Interface deve responder em &lt; 100ms para ações locais</li>
+<li>Renderização de setores deve ocorrer em &lt; 500ms</li>
+<li>Busca deve filtrar resultados em &lt; 50ms</li>
+</ul>
+<h4 id="rnf-002-capacidade">RNF-002: Capacidade</h4>
+<ul>
+<li>Suportar até 1000 itens sem degradação perceptível</li>
+<li>Suportar até 100 usuários cadastrados</li>
+<li>Suportar até 50 setores</li>
+<li>Manter 200 logs em memória</li>
+</ul>
+<h3 id="42-usabilidade">4.2 Usabilidade</h3>
+<h4 id="rnf-003-interface">RNF-003: Interface</h4>
+<ul>
+<li>Design responsivo (mobile-first)</li>
+<li>Suporte a touch em dispositivos móveis</li>
+<li>Navegação intuitiva sem necessidade de treinamento extensivo</li>
+<li>Feedback visual para todas as ações</li>
+</ul>
+<h4 id="rnf-004-acessibilidade">RNF-004: Acessibilidade</h4>
+<ul>
+<li>Contraste mínimo de 4.5:1 para textos</li>
+<li>Elementos interativos com área mínima de 44x44px</li>
+<li>Navegação completa por teclado (opcional para v6.0)</li>
+</ul>
+<h3 id="43-compatibilidade">4.3 Compatibilidade</h3>
+<h4 id="rnf-005-navegadores">RNF-005: Navegadores</h4>
+<ul>
+<li>Chrome 90+</li>
+<li>Firefox 88+</li>
+<li>Edge 90+</li>
+<li>Safari 14+</li>
+</ul>
+<h4 id="rnf-006-dispositivos">RNF-006: Dispositivos</h4>
+<ul>
+<li>Desktop (1024px+)</li>
+<li>Tablet (768px - 1023px)</li>
+<li>Mobile (320px - 767px)</li>
+</ul>
+<h3 id="44-seguranca">4.4 Segurança</h3>
+<h4 id="rnf-007-autenticacao">RNF-007: Autenticação</h4>
+<ul>
+<li>Senhas armazenadas com hash (btoa + reverse)</li>
+<li>Sessão limpa ao fechar navegador</li>
+<li>Bloqueio preventivo de usuários</li>
+</ul>
+<h4 id="rnf-008-dados">RNF-008: Dados</h4>
+<ul>
+<li>Armazenamento local criptografado (hash básico)</li>
+<li>Sem transmissão de dados sensíveis</li>
+<li>Rastreamento apenas de IP local (não público)</li>
+</ul>
+<h3 id="45-manutenibilidade">4.5 Manutenibilidade</h3>
+<h4 id="rnf-009-codigo">RNF-009: Código</h4>
+<ul>
+<li>JavaScript vanilla (sem frameworks)</li>
+<li>Código comentado em português</li>
+<li>Funções com responsabilidade única</li>
+<li>Separação clara de concerns</li>
+</ul>
+<h4 id="rnf-010-documentacao">RNF-010: Documentação</h4>
+<ul>
+<li>Comentários inline explicativos</li>
+<li>Documentação de API interna</li>
+<li>README completo</li>
+<li>Este documento de requisitos</li>
+</ul>
+<h3 id="46-confiabilidade">4.6 Confiabilidade</h3>
+<h4 id="rnf-011-persistencia">RNF-011: Persistência</h4>
+<ul>
+<li>Auto-save após cada ação</li>
+<li>Recuperação automática ao reabrir</li>
+<li>Tolerância a erros de localStorage</li>
+</ul>
+<h4 id="rnf-012-disponibilidade">RNF-012: Disponibilidade</h4>
+<ul>
+<li>Funcionar 100% offline</li>
+<li>Sem dependências de rede</li>
+<li>Sem pontos únicos de falha</li>
+</ul>
+<hr />
+<h2 id="5-casos-de-uso">5. Casos de Uso</h2>
+<h3 id="uc-001-realizar-login">UC-001: Realizar Login</h3>
+<p><strong>Ator Principal:</strong> Usuário (qualquer perfil)</p>
+<p><strong>Pré-condições:</strong>
+- Sistema aberto no navegador
+- Usuário cadastrado no sistema</p>
+<p><strong>Fluxo Principal:</strong>
+1. Usuário acessa sistema
+2. Sistema exibe tela de login
+3. Usuário insere login e senha
+4. Usuário clica em "Entrar no Sistema"
+5. Sistema valida credenciais
+6. Sistema verifica se usuário está bloqueado
+7. Sistema obtém IP local via WebRTC
+8. Sistema gera Device ID
+9. Sistema registra acesso em log
+10. Sistema exibe interface apropriada ao perfil</p>
+<p><strong>Fluxos Alternativos:</strong></p>
+<p><strong>FA-1: Credenciais Inválidas</strong>
+- 5a. Sistema não encontra usuário ou senha incorreta
+- 5b. Sistema exibe toast de erro
+- 5c. Retorna ao passo 3</p>
+<p><strong>FA-2: Usuário Bloqueado</strong>
+- 6a. Usuário está marcado como bloqueado
+- 6b. Sistema exibe toast informando bloqueio
+- 6c. Retorna ao passo 3</p>
+<p><strong>FA-3: Primeiro Acesso</strong>
+- 10a. Flag <code>primeiroAcesso</code> = true
+- 10b. Sistema exibe prompt para nova senha
+- 10c. Usuário define nova senha
+- 10d. Sistema atualiza senha e marca flag = false
+- 10e. Continua fluxo normal</p>
+<p><strong>Pós-condições:</strong>
+- Usuário autenticado
+- Sessão ativa
+- Log de acesso registrado
+- Interface carregada conforme permissões</p>
+<hr />
+<h3 id="uc-002-criar-novo-usuario">UC-002: Criar Novo Usuário</h3>
+<p><strong>Ator Principal:</strong> Administrador</p>
+<p><strong>Pré-condições:</strong>
+- Admin autenticado
+- Painel de gestão visível</p>
+<p><strong>Fluxo Principal:</strong>
+1. Admin acessa painel "Novo Usuário"
+2. Admin preenche login
+3. Admin preenche senha
+4. Admin seleciona tipo de usuário
+5. Admin seleciona setor (se tipo = operador)
+6. Admin clica em "Cadastrar Usuário"
+7. Sistema valida login único
+8. Sistema valida campos obrigatórios
+9. Sistema aplica hash na senha
+10. Sistema cria registro com flag <code>primeiroAcesso = true</code>
+11. Sistema registra criação em log
+12. Sistema salva no localStorage
+13. Sistema atualiza tabela de usuários
+14. Sistema exibe toast de sucesso
+15. Sistema limpa formulário</p>
+<p><strong>Fluxos Alternativos:</strong></p>
+<p><strong>FA-1: Login Duplicado</strong>
+- 7a. Login já existe no banco
+- 7b. Sistema exibe toast de erro
+- 7c. Retorna ao passo 2</p>
+<p><strong>FA-2: Campos Vazios</strong>
+- 8a. Login ou senha vazios
+- 8b. Sistema exibe toast de erro
+- 8c. Retorna ao passo 2</p>
+<p><strong>Pós-condições:</strong>
+- Novo usuário criado
+- Registro em log
+- Tabela atualizada
+- Dados persistidos</p>
+<hr />
+<h3 id="uc-003-adicionar-item-ao-estoque">UC-003: Adicionar Item ao Estoque</h3>
+<p><strong>Ator Principal:</strong> Admin ou Almoxarifado</p>
+<p><strong>Pré-condições:</strong>
+- Usuário autenticado
+- Painel de entrada visível</p>
+<p><strong>Fluxo Principal:</strong>
+1. Usuário acessa painel "Entrada e Busca"
+2. Usuário digita nome do item
+3. Usuário define quantidade
+4. Usuário clica em "Adicionar Novo Item"
+5. Sistema valida campos não vazios
+6. Sistema busca item existente no estoque
+7. Sistema incrementa quantidade (se existe)
+8. Sistema registra adição em log
+9. Sistema salva no localStorage
+10. Sistema atualiza quadro de estoque
+11. Sistema exibe toast de sucesso
+12. Sistema limpa campo de nome
+13. Sistema foca campo para próxima entrada</p>
+<p><strong>Fluxos Alternativos:</strong></p>
+<p><strong>FA-1: Item Não Existe</strong>
+- 7a. Item não encontrado no estoque
+- 7b. Sistema cria novo registro
+- 7c. Continua fluxo normal</p>
+<p><strong>FA-2: Campos Inválidos</strong>
+- 5a. Nome vazio ou quantidade &lt; 1
+- 5b. Sistema exibe toast de erro
+- 5c. Retorna ao passo 2</p>
+<p><strong>Pós-condições:</strong>
+- Item adicionado ou incrementado
+- Log registrado
+- Estoque atualizado
+- Interface refletindo mudança</p>
+<hr />
+<h3 id="uc-004-solicitar-reposicao-de-material">UC-004: Solicitar Reposição de Material</h3>
+<p><strong>Ator Principal:</strong> Operador de Setor</p>
+<p><strong>Pré-condições:</strong>
+- Operador autenticado
+- Item zerado em seu setor
+- Item disponível no estoque central</p>
+<p><strong>Fluxo Principal:</strong>
+1. Operador visualiza item zerado em seu setor
+2. Operador clica em "Solicitar +"
+3. Sistema exibe modal de solicitação
+4. Sistema busca disponibilidade no estoque
+5. Sistema exibe quantidade disponível
+6. Sistema pré-preenche quantidade = 1
+7. Operador ajusta quantidade desejada
+8. Operador clica em "Enviar Pedido"
+9. Sistema valida quantidade &lt;= disponível
+10. Sistema cria registro em setor "solicitacao"
+11. Sistema armazena setor destino
+12. Sistema registra solicitação em log
+13. Sistema fecha modal
+14. Sistema salva no localStorage
+15. Sistema atualiza interface
+16. Sistema exibe toast de sucesso</p>
+<p><strong>FA-1: Estoque Insuficiente</strong>
+1. Quantidade solicitada &gt; disponível
+2. Sistema exibe toast de erro
+3. Retorna ao passo 7 (ajuste da quantidade)</p>
+<p><strong>FA-2: Sem Estoque</strong>
+1. Item não encontrado no estoque
+2. Sistema exibe disponibilidade = 0
+3. Modal permite solicitar mesmo assim (para registro)</p>
+<p><strong>Pós-condições:</strong>
+- Solicitação criada
+- Registro em log
+- Almoxarifado pode visualizar
+- Operador notificado</p>
+<h3 id="uc-005-transferir-material-via-drag-and-drop">UC-005: Transferir Material via Drag-and-Drop</h3>
+<p><strong>Ator Principal:</strong> Admin ou Almoxarifado</p>
+<p><strong>Pré-condições:</strong>
+- Usuário autenticado
+- Item disponível no estoque
+- Setor destino não bloqueado</p>
+<p><strong>Fluxo Principal:</strong>
+1. Usuário visualiza item no estoque central
+2. Usuário clica e segura o item (drag)
+3. Usuário move cursor sobre setor destino
+4. Sistema destaca setor com hover
+5. Usuário solta item no setor (drop)
+6. Sistema exibe modal de transferência
+7. Sistema exibe nome do item e setor destino
+8. Sistema pré-preenche quantidade = 1
+9. Sistema define max = quantidade disponível
+10. Usuário ajusta quantidade
+11. Usuário clica em "Confirmar Envio"
+12. Sistema valida quantidade
+13. Sistema deduz do estoque central
+14. Sistema adiciona ao setor destino (ou cria registro)
+15. Sistema registra transferência em log
+16. Sistema fecha modal
+17. Sistema salva no localStorage
+18. Sistema atualiza ambos os setores visualmente
+19. Sistema exibe toast de sucesso</p>
+<p><strong>Fluxos Alternativos:</strong></p>
+<p><strong>FA-1: Setor Bloqueado</strong>
+1. Setor destino está bloqueado
+2. Sistema exibe toast de erro
+3. Cancela operação</p>
+<p><strong>FA-2: Quantidade Inválida</strong>
+1. Quantidade &lt; 1 ou &gt; disponível
+2. Sistema exibe toast de erro
+3. Retorna ao passo 10</p>
+<p><strong>FA-3: Drop em Local Inválido</strong>
+1. Usuário solta em estoque ou solicitações
+2. Sistema ignora ação
+3. Nenhuma alteração</p>
+<p><strong>Pós-condições:</strong>
+- Material transferido
+- Estoque e setor atualizados
+- Log registrado
+- Interface sincronizada</p>
+<hr />
+<h2 id="6-modelo-de-dados">6. Modelo de Dados</h2>
+<h3 id="61-estrutura-geral">6.1 Estrutura Geral</h3>
+<pre><code>javascript{
+  usuarios: Array&lt;Usuario&gt;,
+  setores:  Array&lt;Setor&gt;,
+  itens:    Array&lt;Item&gt;,
+  logs:     Array&lt;String&gt;
+}
+</code></pre>
+<h3 id="62-entidade-usuario">6.2 Entidade: Usuario</h3>
+<pre><code>javascript{
+  id: String,              // Único, gerado com timestamp
+  nome: String,            // Login (único)
+  senha: String,           // Hash da senha
+  tipo: String,            // 'admin' | 'almoxarifado' | 'setor'
+  setorId: String,         // ID do setor vinculado (vazio se admin/almox)
+  ip: String,              // Último IP de acesso
+  mac: String,             // Device ID (identificador único)
+  acesso: String,          // Data/hora do último acesso
+  bloqueado: Boolean,      // Status de bloqueio
+  primeiroAcesso: Boolean  // Flag de primeiro login
+}
+</code></pre>
+<h4 id="exemplo">Exemplo:</h4>
+<pre><code>javascript{
+  id: 'u1674567890123',
+  nome: 'joao.silva',
+  senha: 'MTIzNDU2Nzg5MA==',
+  tipo: 'setor',
+  setorId: 's1674567891234',
+  ip: '192.168.1.105',
+  mac: 'ID-bW96aWxsYTEyMzQ1',
+  acesso: '11/01/2025 14:30:45',
+  bloqueado: false,
+  primeiroAcesso: false
+}
+</code></pre>
+<h3 id="63-entidade-setor">6.3 Entidade: Setor</h3>
+<pre><code>javascript{
+  id: String,       // Único, 'estoque' ou 's' + timestamp
+  nome: String,     // Nome do setor
+  emoji: String,    // Emoji representativo
+  cor: String,      // Cor de fundo (hex)
+  fixa: Boolean,    // Se é setor fixo (não move/exclui)
+  ordem: Number,    // Ordem de exibição
+  bloqueado: Boolean // Status de bloqueio
+}
+</code></pre>
+<h4 id="exemplo_1">Exemplo:</h4>
+<pre><code>javascript{
+  id: 's1674567891234',
+  nome: 'Manutenção',
+  emoji: '🔧',
+  cor: '#e3f2fd',
+  fixa: false,
+  ordem: 2,
+  bloqueado: false
+}
+</code></pre>
+<h4 id="setores-especiais">Setores Especiais:</h4>
+<pre><code>javascript// Estoque Central (sempre existe)
+{
+  id: 'estoque',
+  nome: 'Estoque Central',
+  emoji: '📦',
+  cor: '#f8fafc',
+  fixa: true,
+  ordem: 0,
+  bloqueado: false
+}
+</code></pre>
+<pre><code>javascript{
+// Solicitações (virtual, criado em runtime se necessário)
+
+  id: 'solicitacao',
+  nome: 'Solicitações',
+  emoji: '🔔',
+  cor: '#fffaf0',
+  fixa: true
+}
+</code></pre>
+<h3 id="64-entidade-item">6.4 Entidade: Item</h3>
+<pre><code>javascript{
+  id: String,      // Único, timestamp ou 'sol-' + timestamp
+  nome: String,    // Nome do item
+  qtd: Number,     // Quantidade disponível
+  setorId: String, // ID do setor onde está
+  destino: String  // (Opcional) Setor destino (apenas para solicitações)
+}
+</code></pre>
+<p>Exemplos:</p>
+<pre><code>javascript// Item no estoque
+{
+  id: '1674567892345',
+  nome: 'Parafuso M6',
+  qtd: 150,
+  setorId: 'estoque'
+}
+
+// Item em setor
+{
+  id: '1674567893456',
+  nome: 'Chave Phillips',
+  qtd: 3,
+  setorId: 's1674567891234'
+}
+
+// Solicitação
+{
+  id: 'sol-1674567894567',
+  nome: 'Martelo',
+  qtd: 2,
+  setorId: 'solicitacao',
+  destino: 's1674567891234'
+}
+</code></pre>
+<h3 id="65-logs">6.5 Logs</h3>
+<pre><code>javascript// Array de strings formatadas
+[
+  &quot;[11/01/2025 14:30:45] joao.silva (IP: 192.168.1.105 | MAC: ID-bW96aWxsYTEyMzQ1): Login realizado&quot;,
+  &quot;[11/01/2025 14:32:10] joao.silva (IP: 192.168.1.105 | MAC: ID-bW96aWxsYTEyMzQ1): Solicitou 5 un de Parafuso M6&quot;,
+  &quot;[11/01/2025 14:35:22] admin (IP: 192.168.1.100 | MAC: ID-YWRtaW4xMjM0NTY3): Atendeu solicitação de 5 un de Parafuso M6&quot;
+]
+</code></pre>
+<p><strong>Formato:</strong></p>
+<pre><code>[DD/MM/YYYY HH:MM:SS] usuario (IP: xxx.xxx.xxx.xxx | MAC: ID-xxxxx): Ação
+</code></pre>
+<hr />
+<h2 id="7-regras-de-negocio">7. Regras de Negócio</h2>
+<h3 id="rn-001-exclusividade-de-login">RN-001: Exclusividade de Login</h3>
+<ul>
+<li>Não podem existir dois usuários com mesmo login</li>
+<li>Validação case-sensitive</li>
+</ul>
+<h3 id="rn-002-usuario-admin-indelevel">RN-002: Usuário Admin Indelével</h3>
+<ul>
+<li>Sempre existe ao menos um admin</li>
+<li>Usuário 'admin' não pode ser excluído</li>
+<li>Outros admins podem ser criados</li>
+</ul>
+<h3 id="rn-003-setor-estoque-fixo">RN-003: Setor Estoque Fixo</h3>
+<ul>
+<li>Setor 'estoque' sempre existe</li>
+<li>Não pode ser editado, movido ou excluído</li>
+<li>Sempre primeira posição</li>
+</ul>
+<h3 id="rn-004-bloqueio-de-setor">RN-004: Bloqueio de Setor</h3>
+<ul>
+<li>Setor bloqueado impede:</li>
+<li>Utilização de materiais</li>
+<li>Novas solicitações</li>
+<li>Setor bloqueado permite:</li>
+<li>Transferências admin</li>
+<li>Visualização</li>
+</ul>
+<h3 id="rn-005-exclusao-de-setor">RN-005: Exclusão de Setor</h3>
+<ul>
+<li>Só pode excluir setor sem itens (qtd &gt; 0)</li>
+<li>Não pode excluir setores fixos</li>
+<li>Usuários vinculados ficam sem setor</li>
+</ul>
+<h3 id="rn-006-validacao-de-transferencia">RN-006: Validação de Transferência</h3>
+<ul>
+<li>Origem deve ter quantidade suficiente</li>
+<li>Destino não pode ser 'estoque' ou 'solicitacao'</li>
+<li>Destino não pode estar bloqueado</li>
+<li>Quantidade &gt; 0</li>
+</ul>
+<h3 id="rn-007-solicitacoes">RN-007: Solicitações</h3>
+<ul>
+<li>Solicitação sem estoque é permitida (registro)</li>
+<li>Atendimento valida estoque atual</li>
+<li>Recusa não retorna nada ao estoque</li>
+</ul>
+<h3 id="rn-008-primeiro-acesso">RN-008: Primeiro Acesso</h3>
+<ul>
+<li>Todo usuário novo tem flag <code>primeiroAcesso = true</code></li>
+<li>Sistema força mudança de senha no primeiro login</li>
+<li>Após alteração, flag vira false</li>
+</ul>
+<h3 id="rn-009-logs-fifo">RN-009: Logs FIFO</h3>
+<ul>
+<li>Mantém apenas 200 logs mais recentes</li>
+<li>Ao adicionar 201º, remove o mais antigo</li>
+<li>Ordem decrescente na exibição</li>
+</ul>
+<h3 id="rn-010-item-zerado">RN-010: Item Zerado</h3>
+<ul>
+<li>Item com qtd = 0 não é excluído automaticamente</li>
+<li>Visual diferenciado (opacidade reduzida)</li>
+<li>Permite reposição via solicitação</li>
+</ul>
+<h3 id="rn-011-agregacao-de-itens">RN-011: Agregação de Itens</h3>
+<ul>
+<li>Itens com mesmo nome no mesmo setor são agregados</li>
+<li>Comparação case-insensitive</li>
+<li>Quantidade é somada</li>
+</ul>
+<h3 id="rn-012-rastreamento-local">RN-012: Rastreamento Local</h3>
+<ul>
+<li>IP obtido via WebRTC (conexão local)</li>
+<li>Device ID gerado a partir de características do navegador</li>
+<li>Ambos registrados a cada login</li>
+</ul>
+<hr />
+<h2 id="8-interface-do-usuario">8. Interface do Usuário</h2>
+<h3 id="81-wireframes-de-baixa-fidelidade">8.1 Wireframes de Baixa Fidelidade</h3>
+<h4 id="tela-de-login">Tela de Login</h4>
+<pre><code>┌────────────────────────────────────┐
+│                                    │
+│         🚀 Enterprise Login        │
+│                                    │
+│   ┌───────────────────────────┐    │
+│   │ Usuário                   │    │
+│   └───────────────────────────┘    │
+│                                    │
+│   ┌───────────────────────────┐    │
+│   │ Senha            [••••••] │    │
+│   └───────────────────────────┘    │
+│                                    │
+│   ┌───────────────────────────┐    │
+│   │   Entrar no Sistema       │    │
+│   └───────────────────────────┘    │
+│                                    │
+│   Esqueci a senha / Reset          │
+│                                    │
+└────────────────────────────────────┘
+</code></pre>
+<h4 id="dashboard-admin">Dashboard Admin</h4>
+<pre><code>┌────────────────────────────────────────────────────────┐
+│ 🏢 Enterprise Stock v6.0    admin (admin)    [Sair]    │
+├────────────────────────────────────────────────────────┤
+│                                                        │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐    │
+│  │ 📦 Entrada   │ │ 👥 Usuários │ │ 🛠️ Config    │    │
+│  │              │ │              │ │              │    │
+│  └──────────────┘ └──────────────┘ └──────────────┘    │
+│                                                        │
+│  📦 Gestão de Estoque e Solicitações                   │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ ┌──────────┐  ┌──────────┐                       │  │
+│  │ │ Estoque  │  │Solicita. │                       │  │
+│  │ │          │  │          │                       │  │
+│  │ └──────────┘  └──────────┘                       │  │
+│  └──────────────────────────────────────────────────┘  │
+│                                                        │
+│  Setores Operacionais                                  │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ ┌──────────┐  ┌──────────┐  ┌──────────┐         │  │
+│  │ │ Setor 1  │  │ Setor 2  │  │ Setor 3  │         │  │
+│  │ └──────────┘  └──────────┘  └──────────┘         │  │
+│  └──────────────────────────────────────────────────┘  │
+│                                                        │
+│  📋 Gestão de Usuários e Auditoria                     │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ Tabela de usuários...                            │  │
+│  └──────────────────────────────────────────────────┘  │
+│                                                        │
+│  🕒 Logs de Movimentação                               │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ [11/01/2025 14:30] admin: Login realizado        │  │
+│  └──────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────┘
+</code></pre>
+<h4 id="dashboard-operador">Dashboard Operador</h4>
+<pre><code>┌────────────────────────────────────────────────────────┐
+│ 🏢 Enterprise Stock v6.0  joao.silva (setor)  [Sair]   │
+├────────────────────────────────────────────────────────┤
+│                                                        │
+│  🔍 Pesquisar no Estoque Central                       │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │ Buscar item disponível...             [🔍]      │   │
+│  └─────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │ Resultados da busca...                          │   │
+│  └─────────────────────────────────────────────────┘   │
+│                                                        │
+│  Meu Setor                                             │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │ 🔧 Manutenção                                   │   │
+│  │ ┌─────────────────────────────────────────────┐  │  │
+│  │ │ Buscar no meu setor...                      │  │  │
+│  │ └─────────────────────────────────────────────┘  │  │
+│  │                                                  │  │
+│  │ ┌─────────────────┐  ┌─────────────────┐         │  │
+│  │ │ Parafuso M6     │  │ Chave Phillips  │         │  │
+│  │ │ Qtd: 15         │  │ Qtd: 0          │         │  │
+│  │ │ [Utilizar]      │  │ [Solicitar +]   │         │  │
+│  │ └─────────────────┘  └─────────────────┘         │  │
+│  └──────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="82-paleta-de-cores">8.2 Paleta de Cores</h3>
+<pre><code>css:root {
+  --cor-fundo: #f0f2f5;       /* Cinza claro de fundo */
+  --cor-primaria: #1a365d;    /* Azul escuro */
+  --cor-destaque: #3182ce;    /* Azul médio */
+  --cor-perigo: #e53e3e;      /* Vermelho */
+  --cor-sucesso: #38a169;     /* Verde */
+  --cor-alerta: #d69e2e;      /* Amarelo/laranja */
+  --cor-texto: #2d3748;       /* Cinza escuro */
+  --cor-borda: #e2e8f0;       /* Cinza claro de bordas */
+}
+</code></pre>
+<h3 id="83-tipografia">8.3 Tipografia</h3>
+<ul>
+<li><strong>Fonte Principal:</strong> Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif</li>
+<li><strong>Tamanhos:</strong></li>
+<li>Títulos: 1.2rem - 1.5rem</li>
+<li>Corpo: 0.9rem - 1rem</li>
+<li>Pequeno: 0.7rem - 0.8rem</li>
+</ul>
+<h3 id="84-componentes-reutilizaveis">8.4 Componentes Reutilizáveis</h3>
+<h4 id="cartao-de-item">Cartão de Item</h4>
+<pre><code>┌─────────────────────────────┐
+│ Nome do Item        Qtd: 10 │
+│                             │
+│      [Botão Ação]           │
+└─────────────────────────────┘
+</code></pre>
+<h4 id="modal-padrao">Modal Padrão</h4>
+<pre><code>┌─────────────────────────────┐
+│ Título do Modal             │
+├─────────────────────────────┤
+│                             │
+│ Conteúdo...                 │
+│                             │
+│ [Input/Select]              │
+│                             │
+│    [Cancelar] [Confirmar]   │
+└─────────────────────────────┘
+</code></pre>
+<h4 id="toast-notification">Toast Notification</h4>
+<pre><code>┌────────────────────────┐
+│ ✓ Ação realizada!      │
+└────────────────────────┘
+
+9. Segurança
+9.1 Autenticação
+Método: Hash básico de senha
+javascriptconst hash = (str) =&gt; btoa(str).split('').reverse().join('');
+</code></pre>
+<p><strong>Limitações Conhecidas:</strong>
+- Hash reversível (não adequado para produção)
+- Sem salt
+- Sem múltiplas iterações</p>
+<p><strong>Recomendação para Produção:</strong>
+- Implementar bcrypt, scrypt ou PBKDF2
+- Adicionar salt único por usuário
+- Mínimo 10.000 iterações</p>
+<h3 id="92-armazenamento">9.2 Armazenamento</h3>
+<p><strong>LocalStorage:</strong>
+- Dados armazenados em texto plano (JSON)
+- Acessível via DevTools
+- Limitado ao domínio</p>
+<p><strong>Mitigações:</strong>
+- Senhas sempre em hash
+- Não armazenar dados sensíveis além das senhas
+- Educação do usuário sobre segurança física</p>
+<h3 id="93-rastreamento">9.3 Rastreamento</h3>
+<p><strong>IP Local:</strong>
+- Obtido via WebRTC
+- Não expõe IP público
+- Identifica apenas rede local</p>
+<p><strong>Device ID:</strong>
+- Gerado a partir de:
+  - User Agent
+  - Idioma
+  - Plataforma
+  - Resolução
+  - Cores
+  - Timezone
+- Hash do conjunto resulta em ID único
+- Muda se navegador/sistema mudarem</p>
+<p><strong>Limitações:</strong>
+- Não é MAC address real (impossível via browser)
+- Pode mudar com updates do navegador
+- Modo anônimo gera ID diferente</p>
+<h3 id="94-protecao-de-dados">9.4 Proteção de Dados</h3>
+<p><strong>Backup:</strong>
+- Responsabilidade do usuário
+- Export manual recomendado
+- Sem sincronização automática</p>
+<p><strong>Perda de Dados:</strong>
+- Limpeza de cache = perda total
+- Sem recuperação possível
+- Documentar procedimentos de backup</p>
+<hr />
+<h2 id="10-consideracoes-tecnicas">10. Considerações Técnicas</h2>
+<h3 id="101-arquitetura">10.1 Arquitetura</h3>
+<pre><code>┌─────────────────────────────────────┐
+│         Camada de Apresentação      │
+│              (HTML/CSS)             │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│       Camada de Lógica (JS)         │
+│  ┌──────────────────────────────┐   │
+│  │  Autenticação                │   │
+│  ├──────────────────────────────┤   │
+│  │  Controle de Permissões      │   │
+│  ├──────────────────────────────┤   │
+│  │  Lógica de Negócio           │   │
+│  ├──────────────────────────────┤   │
+│  │  Gerenciamento de Estado     │   │
+│  └──────────────────────────────┘   │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│      Camada de Persistência         │
+│        (LocalStorage API)           │
+└─────────────────────────────────────┘
+</code></pre>
+<h3 id="102-fluxo-de-dados">10.2 Fluxo de Dados</h3>
+<pre><code>Ação do Usuário
+      │
+      ▼
+Validação de Permissão
+      │
+      ▼
+Lógica de Negócio
+      │
+      ▼
+Atualização do Estado (db)
+      │
+      ▼
+Persistência (LocalStorage)
+      │
+      ▼
+Atualização da Interface
+      │
+      ▼
+Feedback Visual (toast)
+</code></pre>
+<h3 id="103-deteccao-de-ip-local">10.3 Detecção de IP Local</h3>
+<pre><code>Tecnologia: WebRTC
+javascriptasync function obterInfoRede() {
+  const pc = new RTCPeerConnection({ iceServers: [] });
+  pc.createDataChannel('');
+
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+
+  return new Promise((resolve) =&gt; {
+    pc.onicecandidate = (ice) =&gt; {
+      if (ice &amp;&amp; ice.candidate) {
+        // Extrai IP do candidate
+        const ip = ice.candidate.candidate.split(' ')[4];
+        resolve(ip);
+      }
+    };
+  });
+}
+</code></pre>
+<p><strong>Processo:</strong>
+- Cria conexão peer fictícia
+- Gera oferta ICE
+- Captura candidates
+- Extrai IP local do candidate
+- Fecha conexão</p>
+<h3 id="104-geracao-de-device-id">10.4 Geração de Device ID</h3>
+<pre><code>javascriptconst navegadorInfo = {
+  userAgent: navigator.userAgent,
+  idioma: navigator.language,
+  plataforma: navigator.platform,
+  cores: screen.colorDepth,
+  resolucao: `${screen.width}x${screen.height}`,
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+};
+
+const deviceId = btoa(JSON.stringify(navegadorInfo)).substring(0, 17);
+const mac = `ID-${deviceId}`;
+</code></pre>
+<h2 id="11-glossario">11. Glossário</h2>
+<p><strong>Termo Definição</strong> 
+- Almoxarifado Usuário: responsável pela gestão do estoque central e distribuição de materiais
+- ArtifactComponente: visual reutilizável da interface
+- CartãoElemento: visual que representa um item no sistema
+- Device ID: Identificador único gerado a partir de características do dispositivo navegador
+- Drag-and-Drop: Ação de arrastar e soltar elementos na interface
+- FIFO: First In, First Out - primeiro a entrar, primeiro a sair
+- Hash: Função que transforma texto em valor codificado
+- LocalStorage: API do navegador para armazenamento local de dados
+- Modal: Janela sobreposta à interface principal para ações específicas
+- Operador: Usuário vinculado a um setor específico com permissões limitadas
+- Setor: Divisão organizacional que recebe e utiliza materiais
+- Solicitação: Pedido de reposição de material feito por operador
+- Toast: Notificação temporária exibida na interface
+- WebRTC: Tecnologia para comunicação em tempo real via navegador</p>
+<h1 id="checklist-de-implementacao">✅ Checklist de Implementação</h1>
+<h2 id="estrutura-base">Estrutura Base</h2>
+<ul>
+<li>Criar index.html com estrutura completa </li>
+<li>Criar styles.css com variáveis e reset </li>
+<li>Criar app.js com estrutura modular </li>
+<li>Implementar LocalStorage wrapper</li>
+</ul>
+<h1 id="documentacao">Documentação</h1>
+<ul>
+<li>README.md completo </li>
+<li>Comentários no código </li>
+<li>Este documento Levantamentos de requisitos</li>
+<li>Doccumentos adcionais de engenharia</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

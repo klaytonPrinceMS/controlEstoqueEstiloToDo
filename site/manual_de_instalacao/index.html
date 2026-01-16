@@ -1,0 +1,1321 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../manual_de_uso_almoxarife/">
+      
+      
+        <link rel="next" href="../metricas_software/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Manual de uso - Instalação - Controle de estoque para Uso Local</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manual-de-instalacao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-header__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Controle de estoque para Uso Local
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manual de uso - Instalação
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-nav__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Controle de estoque para Uso Local
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_de_risco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analise de Risco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_de_software_das/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura de Software DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuiçoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes_aprendida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_administrador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Administradores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_almoxarife/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sumário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-o-que-e-necessario-para-instalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. O que é necessário para instalar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opcoes-de-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Opções de Instalação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Opções de Instalação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-instalacao-local-recomendada-para-uso-individual-ou-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Instalação local (recomendada para uso individual ou teste)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-instalacao-em-rede-compartilhada-para-multiplos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Instalação em rede compartilhada (para múltiplos usuários)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-passo-a-passo-de-instalacao-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Passo a passo de instalação local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-primeira-execucao-e-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Primeira execução e configuração inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-como-atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como atualizar o sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-como-fazer-backup-e-restauracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Como fazer backup e restauração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-solucao-de-problemas-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Solução de problemas comuns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-recomendacoes-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Recomendações finais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_operadores.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metricas do Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padroes_codificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrões de Codificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plano_de_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_de_mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_dasos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Casos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versionamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao_de_produto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_levantamento_requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sumário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-o-que-e-necessario-para-instalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. O que é necessário para instalar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opcoes-de-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Opções de Instalação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Opções de Instalação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-instalacao-local-recomendada-para-uso-individual-ou-teste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Instalação local (recomendada para uso individual ou teste)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-instalacao-em-rede-compartilhada-para-multiplos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Instalação em rede compartilhada (para múltiplos usuários)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-passo-a-passo-de-instalacao-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Passo a passo de instalação local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-primeira-execucao-e-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Primeira execução e configuração inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-como-atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como atualizar o sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-como-fazer-backup-e-restauracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Como fazer backup e restauração
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-solucao-de-problemas-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Solução de problemas comuns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-recomendacoes-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Recomendações finais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="manual-de-instalacao">📦 Manual de Instalação</h1>
+<p><strong>Sistema de Estoque Enterprise</strong></p>
+<p><strong>Objetivo:</strong><br />
+Orientar o usuário (geralmente o administrador de TI ou responsável técnico) a instalar e colocar em funcionamento o sistema de forma rápida e segura em qualquer computador ou ambiente corporativo.</p>
+<p><strong>Data:</strong> Janeiro 2026<br />
+<strong>Requisitos mínimos:</strong><br />
+- Computador com Windows, macOS ou Linux<br />
+- Navegador moderno: Google Chrome (versão 90+), Microsoft Edge (90+), Firefox (88+) ou Safari (14+)<br />
+- Nenhum servidor, banco de dados ou conexão com internet é necessário</p>
+<hr />
+<h2 id="sumario">Sumário</h2>
+<ol>
+<li>O que é necessário para instalar  </li>
+<li>Opções de instalação<br />
+   2.1. Instalação local (mais simples – recomendada)<br />
+   2.2. Instalação em rede compartilhada (para múltiplos computadores)  </li>
+<li>Passo a passo de instalação local  </li>
+<li>Primeira execução e configuração inicial  </li>
+<li>Como atualizar o sistema  </li>
+<li>Como fazer backup e restauração  </li>
+<li>Solução de problemas comuns  </li>
+<li>Recomendações finais</li>
+</ol>
+<hr />
+<h3 id="1-o-que-e-necessario-para-instalar">1. O que é necessário para instalar</h3>
+<ul>
+<li><strong>Arquivo do sistema</strong> → Um único arquivo ZIP contendo:</li>
+<li><code>index.html</code></li>
+<li><code>styles.css</code></li>
+<li><code>app.js</code> (ou pasta com arquivos JS separados)</li>
+<li>(opcionalmente) <code>assets/</code> com imagens/ícones</li>
+<li><strong>Espaço em disco</strong> → Menos de 2 MB</li>
+<li><strong>Permissões</strong> → Apenas ler/escrever em uma pasta qualquer do computador</li>
+</ul>
+<p><strong>Não é necessário:</strong>
+- Instalar programas adicionais
+- Configurar servidor web
+- Ter conexão com internet
+- Criar banco de dados</p>
+<hr />
+<h3 id="2-opcoes-de-instalacao">2. Opções de Instalação</h3>
+<h4 id="21-instalacao-local-recomendada-para-uso-individual-ou-teste">2.1 Instalação local (recomendada para uso individual ou teste)</h4>
+<ul>
+<li>Ideal para um único computador ou operador  </li>
+<li>Os dados ficam salvos apenas naquele navegador/computador</li>
+</ul>
+<h4 id="22-instalacao-em-rede-compartilhada-para-multiplos-usuarios">2.2 Instalação em rede compartilhada (para múltiplos usuários)</h4>
+<ul>
+<li>Colocar os arquivos em uma pasta compartilhada na rede (ex: servidor de arquivos)  </li>
+<li>Cada usuário acessa pelo caminho de rede (\servidor\pasta\index.html)  </li>
+<li>Cada computador mantém seu próprio LocalStorage → <strong>não há sincronização automática</strong>  </li>
+<li>Recomendado apenas se todos os computadores tiverem acesso à mesma pasta e backup centralizado</li>
+</ul>
+<p><strong>Atenção:</strong> O sistema não sincroniza dados entre máquinas automaticamente. Cada máquina tem seu próprio banco de dados local.</p>
+<hr />
+<h3 id="3-passo-a-passo-de-instalacao-local">3. Passo a passo de instalação local</h3>
+<ol>
+<li><strong>Receba o pacote</strong>  </li>
+<li>
+<p>O administrador de TI entrega o arquivo ZIP (ex: <code>EstoqueEnterprise.zip</code>)</p>
+</li>
+<li>
+<p><strong>Descompacte o arquivo</strong>  </p>
+</li>
+<li>Clique com botão direito → Extrair tudo  </li>
+<li>
+<p>Escolha uma pasta fixa e de fácil acesso, exemplo:</p>
+<ul>
+<li><code>C:\Programas\EstoqueEnterprise\</code></li>
+<li><code>D:\Sistemas\Estoque\</code></li>
+<li><code>/Users/seuusuario/Sistemas/EstoqueEnterprise/</code> (macOS)</li>
+</ul>
+</li>
+<li>
+<p><strong>Abra o sistema pela primeira vez</strong>  </p>
+</li>
+<li>Navegue até a pasta descompactada  </li>
+<li>Dê duplo clique no arquivo <strong><code>index.html</code></strong>  </li>
+<li>
+<p>O navegador abrirá automaticamente o sistema</p>
+</li>
+<li>
+<p><strong>Crie um atalho (opcional – recomendado)</strong>  </p>
+</li>
+<li>Clique com botão direito em <code>index.html</code> → Criar atalho  </li>
+<li>Renomeie para “Estoque Enterprise”  </li>
+<li>Arraste o atalho para a Área de Trabalho ou Fixar na barra de tarefas</li>
+</ol>
+<hr />
+<h3 id="4-primeira-execucao-e-configuracao-inicial">4. Primeira execução e configuração inicial</h3>
+<ol>
+<li>Ao abrir pela primeira vez, você verá a tela de login</li>
+<li>Use as credenciais iniciais (fornecidas pelo administrador):</li>
+<li>Usuário: <code>admin</code></li>
+<li>Senha: senha padrão (geralmente informada no pacote ou por e-mail)</li>
+<li>No primeiro acesso do admin:</li>
+<li>O sistema solicitará a criação de uma <strong>nova senha</strong> (obrigatória)</li>
+<li>Digite e confirme a nova senha</li>
+<li>Após isso, crie os outros usuários, setores e comece a cadastrar materiais</li>
+</ol>
+<p><strong>Dica:</strong> Altere a senha do admin imediatamente e guarde-a em local seguro.</p>
+<hr />
+<h3 id="5-como-atualizar-o-sistema">5. Como atualizar o sistema</h3>
+<p>Quando houver uma nova versão:</p>
+<ol>
+<li>Receba o novo ZIP do desenvolvedor/administrador</li>
+<li>Faça backup do banco de dados atual (veja item 6)</li>
+<li>Descompacte o novo ZIP na mesma pasta (substitua os arquivos existentes)</li>
+<li>Abra novamente o <code>index.html</code></li>
+<li>O sistema carregará com a nova versão</li>
+<li>Os dados existentes (usuários, itens, logs) são mantidos no LocalStorage</li>
+</ol>
+<p><strong>Importante:</strong> Sempre faça backup antes de atualizar.</p>
+<hr />
+<h3 id="6-como-fazer-backup-e-restauracao">6. Como fazer backup e restauração</h3>
+<p><strong>Backup (exportar dados):</strong>
+1. Abra o sistema como administrador
+2. Vá em Configurações → Exportar Dados (ou use a função de backup disponível)
+3. Salve o arquivo JSON em local seguro (pen drive, nuvem, servidor)</p>
+<p><strong>Restauração (importar dados):</strong>
+1. Abra o sistema
+2. Vá em Configurações → Importar Dados
+3. Selecione o arquivo JSON de backup
+4. Confirme a importação → os dados serão restaurados</p>
+<p><strong>Alternativa manual (se a função não estiver disponível):</strong>
+- Abra DevTools (F12) → Application → Local Storage → copie o conteúdo da chave do sistema<br />
+- Cole em um arquivo JSON novo</p>
+<hr />
+<h3 id="7-solucao-de-problemas-comuns">7. Solução de problemas comuns</h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Solução possível</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O sistema não abre (tela branca)</td>
+<td>Verifique se está abrindo o <code>index.html</code> diretamente (não via servidor)</td>
+</tr>
+<tr>
+<td>Dados não salvam / "Quota exceeded"</td>
+<td>Limpe itens zerados antigos ou faça reset parcial (mantendo usuários)</td>
+</tr>
+<tr>
+<td>Funcionalidades não aparecem</td>
+<td>Limpe o cache do navegador (Ctrl + Shift + R)</td>
+</tr>
+<tr>
+<td>Login não funciona</td>
+<td>Use reset de emergência (tela de login) – apaga tudo e volta ao padrão</td>
+</tr>
+<tr>
+<td>Drag &amp; drop não funciona no celular</td>
+<td>Use computador para transferências; mobile tem suporte limitado</td>
+</tr>
+<tr>
+<td>Preciso usar em vários computadores</td>
+<td>Instale em pasta compartilhada na rede + faça backup centralizado diariamente</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="8-recomendacoes-finais">8. Recomendações finais</h3>
+<ul>
+<li><strong>Mantenha a pasta fixa</strong> e com nome claro (ex: C:\EstoqueEnterprise)</li>
+<li><strong>Faça backup semanal</strong> (ou diário em ambientes críticos)</li>
+<li><strong>Não limpe o cache</strong> do navegador sem backup prévio</li>
+<li><strong>Atualize o navegador</strong> periodicamente</li>
+<li><strong>Use o perfil administrador</strong> apenas para configurações; operadores devem ter contas restritas</li>
+<li><strong>Documente</strong> as senhas iniciais e alterações importantes</li>
+</ul>
+<p><strong>Pronto!</strong><br />
+O sistema está instalado e pronto para uso em menos de 5 minutos.</p>
+<p>Boa gestão do estoque!</p>
+<p>Suporte técnico: Contate o administrador do sistema ou o responsável pela manutenção.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1290 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../versionamento/">
+      
+      
+        <link rel="next" href="../2_levantamento_requisitos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Visão de Produto - Controle de estoque para Uso Local</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-documento-de-visao-do-produto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-header__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Controle de estoque para Uso Local
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão de Produto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Controle de estoque para Uso Local" class="md-nav__button md-logo" aria-label="Controle de estoque para Uso Local" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Controle de estoque para Uso Local
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analise_de_risco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analise de Risco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura_de_software_das/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitetura de Software DAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contribuiçoes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes_aprendida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lições aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_administrador/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Administradores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_almoxarife/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Almoxarife
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_instalacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Instalação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_de_uso_operadores.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual de uso - Operadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metricas_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metricas do Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../padroes_codificacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Padrões de Codificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plano_de_projeto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano de projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registro_de_mudancas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registro de mudanças
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_dasos.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Casos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_plano/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes_relatorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testes - Relatórios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versionamento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão de Produto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-objetivo-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Objetivo do Produto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-problema-a-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Problema a Resolver
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Problema a Resolver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto Atual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dor-dos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dor dos Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-proposta-de-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Proposta de Valor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Proposta de Valor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferenciais-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferenciais Principais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-stakeholders-e-seus-interesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Stakeholders e Seus Interesses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-escopo-do-mvp-entregue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Escopo do MVP (Entregue)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-criterios-de-sucesso-resultados-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Critérios de Sucesso (Resultados do MVP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_levantamento_requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Levantamento de Requisitos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-objetivo-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Objetivo do Produto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-problema-a-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Problema a Resolver
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Problema a Resolver">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto-atual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexto Atual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dor-dos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dor dos Usuários
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-proposta-de-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Proposta de Valor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Proposta de Valor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diferenciais-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferenciais Principais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-stakeholders-e-seus-interesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Stakeholders e Seus Interesses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-escopo-do-mvp-entregue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Escopo do MVP (Entregue)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-criterios-de-sucesso-resultados-do-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Critérios de Sucesso (Resultados do MVP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-documento-de-visao-do-produto">3. 📝 Documento de Visão do Produto</h1>
+<p><strong>Sistema de Estoque Enterprise</strong><br />
+<strong>Versão do MVP:</strong> (concluída em 11/01/2026)</p>
+<p><strong>Data de elaboração:</strong> 11 de janeiro de 2026<br />
+<strong>Responsável:</strong> Klayton B. Prince<br />
+<strong>Status:</strong> MVP entregue e validado</p>
+<hr />
+<h2 id="31-objetivo-do-produto">3.1 Objetivo do Produto</h2>
+<p>Criar um sistema de gestão de estoque <strong>multi-setorial</strong>, <strong>100% offline</strong>, <strong>sem dependências externas</strong>, que permita:
+- Controle granular de materiais por setor
+- Rastreabilidade completa de todas as movimentações
+- Gestão de usuários com diferentes níveis de permissão (Admin, Almoxarifado, Operador)
+- Auditoria automática e imutável de todas as ações</p>
+<p>O sistema foi projetado para empresas que precisam de controle rigoroso de materiais sem infraestrutura de TI complexa, internet ou custos recorrentes.</p>
+<hr />
+<h2 id="32-problema-a-resolver">3.2 Problema a Resolver</h2>
+<h3 id="contexto-atual">Contexto Atual</h3>
+<ul>
+<li>Empresas com múltiplos setores enfrentam dificuldades para controlar a distribuição e o consumo de materiais</li>
+<li>Sistemas tradicionais (ERP, WMS) exigem conexão constante com internet, servidores, manutenção cara e treinamento extenso</li>
+<li>Controle manual (planilhas, fichas) gera:</li>
+<li>Perdas frequentes de materiais</li>
+<li>Falta de rastreabilidade</li>
+<li>Impossibilidade de auditoria</li>
+<li>Conflitos entre setores por falta de transparência</li>
+<li>Tempo excessivo em processos administrativos</li>
+</ul>
+<h3 id="dor-dos-usuarios">Dor dos Usuários</h3>
+<ul>
+<li><strong>Diretoria:</strong> Falta de visibilidade real do consumo e desperdício</li>
+<li><strong>Almoxarifado:</strong> Dificuldade em atender demandas justas e rastrear entregas</li>
+<li><strong>Setores/Operadores:</strong> Demora para obter materiais, burocracia excessiva</li>
+<li><strong>Auditoria:</strong> Impossibilidade de comprovar movimentações sem registros confiáveis</li>
+<li><strong>TI:</strong> Alto custo e complexidade para implantar e manter soluções tradicionais</li>
+</ul>
+<hr />
+<h2 id="33-proposta-de-valor">3.3 Proposta de Valor</h2>
+<h3 id="diferenciais-principais">Diferenciais Principais</h3>
+<ul>
+<li>✅ <strong>100% offline</strong> — funciona sem internet, ideal para ambientes remotos ou instáveis</li>
+<li>✅ <strong>Zero custo de infraestrutura</strong> — não requer servidores, bancos de dados ou licenças</li>
+<li>✅ <strong>Implantação imediata</strong> — basta abrir o arquivo HTML no navegador</li>
+<li>✅ <strong>Auditoria completa automática</strong> — todas as ações registradas com timestamp, usuário, IP local e Device ID</li>
+<li>✅ <strong>Interface intuitiva</strong> — drag &amp; drop, notificações toast, busca rápida</li>
+<li>✅ <strong>Múltiplos níveis de permissão</strong> — Admin total, Almoxarifado distribuidor, Operador restrito</li>
+<li>✅ <strong>Leve e simples</strong> — código vanilla, sem frameworks, fácil manutenção</li>
+</ul>
+<p><strong>Benefícios Esperados:</strong>
+- Redução de perdas de materiais
+- Transparência total nas movimentações
+- Redução de tempo em processos administrativos
+- Facilidade de implantação e treinamento
+- Controle centralizado sem custo adicional</p>
+<hr />
+<h2 id="34-stakeholders-e-seus-interesses">3.4 Stakeholders e Seus Interesses</h2>
+<table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Interesse Principal</th>
+<th>Prioridade</th>
+<th>Necessidades Atendidas no MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diretor Operacional</td>
+<td>Controle total, redução de custos e desperdícios</td>
+<td>Alta</td>
+<td>Auditoria completa, relatórios implícitos via logs</td>
+</tr>
+<tr>
+<td>Gerente de Almoxarifado</td>
+<td>Eficiência na distribuição e controle de estoque</td>
+<td>Alta</td>
+<td>Transferências rápidas, atendimento de solicitações</td>
+</tr>
+<tr>
+<td>Supervisor de Setor</td>
+<td>Acesso rápido e justo a materiais</td>
+<td>Média</td>
+<td>Solicitações simples, consumo controlado</td>
+</tr>
+<tr>
+<td>Operador de Setor</td>
+<td>Facilidade de uso e rapidez</td>
+<td>Média</td>
+<td>Interface intuitiva, busca rápida</td>
+</tr>
+<tr>
+<td>Auditor Interno</td>
+<td>Rastreabilidade e conformidade</td>
+<td>Alta</td>
+<td>Logs detalhados e imutáveis</td>
+</tr>
+<tr>
+<td>Equipe de TI</td>
+<td>Fácil manutenção e zero dependências</td>
+<td>Baixa</td>
+<td>Código simples, vanilla, sem servidor</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="35-escopo-do-mvp-entregue">3.5 Escopo do MVP (Entregue)</h2>
+<p><strong>Incluído no MVP v1.0 (concluído em 11/01/2026):</strong>
+- Autenticação multi-nível com hash de senha
+- CRUD completo de usuários, setores e itens
+- Sistema de solicitações (criação, aprovação parcial/total, recusa)
+- Transferências via drag &amp; drop + resgate de materiais
+- Consumo/utilização de itens por operadores
+- Auditoria completa (logs com timestamp, usuário, IP local, Device ID)
+- Interface responsiva básica (desktop + tablet)
+- Persistência via LocalStorage com salvamento debounced
+- Notificações toast e validações de erro</p>
+<p><strong>Não Incluído no MVP (planejamento futuro):</strong>
+- Relatórios em PDF/Excel
+- Gráficos de consumo e dashboards analíticos
+- Integração com ERP ou sistemas externos
+- Aplicativo mobile nativo
+- Sincronização em nuvem ou multi-dispositivo
+- Compressão avançada de dados
+- Testes automatizados</p>
+<hr />
+<h2 id="36-criterios-de-sucesso-resultados-do-mvp">3.6 Critérios de Sucesso (Resultados do MVP)</h2>
+<table>
+<thead>
+<tr>
+<th>Métrica / Critério</th>
+<th>Meta Original</th>
+<th>Resultado Real (11/01/2026)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tempo de implantação</td>
+<td>&lt; 1 dia</td>
+<td>~5 minutos</td>
+<td>Atingido</td>
+</tr>
+<tr>
+<td>Tempo de treinamento inicial de usuários</td>
+<td>&lt; 2 horas</td>
+<td>~30–60 minutos</td>
+<td>Atingido</td>
+</tr>
+<tr>
+<td>Taxa de adoção prevista (1º mês)</td>
+<td>&gt; 90%</td>
+<td>Pronto para piloto</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Redução estimada de tempo em processos</td>
+<td>≥ 50%</td>
+<td>Observado em simulações</td>
+<td>Promissor</td>
+</tr>
+<tr>
+<td>Incidentes de segurança detectados</td>
+<td>Zero</td>
+<td>Zero</td>
+<td>Atingido</td>
+</tr>
+<tr>
+<td>Funcionamento 100% offline</td>
+<td>Obrigatório</td>
+<td>100% confirmado</td>
+<td>Atingido</td>
+</tr>
+<tr>
+<td>Auditoria completa de ações</td>
+<td>100% das ações críticas</td>
+<td>100% registrado</td>
+<td>Atingido</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusão:</strong><br />
+O MVP atendeu plenamente à visão do produto: um sistema simples, offline, auditável e de implantação instantânea.<br />
+Pronto para implantação piloto em ambiente real a partir de 11/01/2026.</p>
+<p><strong>Próximos passos sugeridos:</strong>
+- Implantação piloto com usuários reais
+- Coleta de feedback e métricas de uso
+- Planejamento de v1.1 com melhorias identificadas</p>
+<p><strong>Aprovado por:</strong><br />
+Klayton B. Prince<br />
+Product Owner / Desenvolvedor Principal<br />
+11 de janeiro de 2026</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,26 @@
+site_name: Controle de estoque para Uso Local
+theme:
+  name: material
+
+nav:
+  - Início: index.md
+  - Analise de Risco: analise_de_risco.md
+  - Arquitetura de Software DAS: arquitetura_de_software_das.md
+  - Contribuiçoes: contribuicoes.md
+  - Guia: guia_API.md
+  - Lições aprendidas: licoes_aprendida.md
+  - Manual de uso - Administradores: manual_de_uso_administrador.md
+  - Manual de uso - Almoxarife: manual_de_uso_almoxarife.md
+  - Manual de uso - Instalação: manual_de_instalacao.md
+  - Manual de uso - Operadores: manual_de_uso_operadores.md
+  - Metricas do Software: metricas_software.md
+  - Padrões de Codificação: padroes_codificacao.md
+  - Plano de projeto: plano_de_projeto.md
+  - Registro de mudanças: registro_de_mudancas.md
+  - Testes - Casos: testes_dasos.md
+  - Testes - Plano: testes_plano.md
+  - Testes - Relatórios: testes_relatorios.md
+  - Versionamento: versionamento.md
+  - Visão de Produto: visao_de_produto.md
+  - Levantamento de Requisitos: 2_levantamento_requisitos.md
+
