@@ -19,11 +19,9 @@ Sistema completo de gestão de estoque multi-setorial com controle de usuários,
 ---
 
 ## 🌟 Agradecimentos
-
 Agradecimentos especiais a todos que contribuíram para o desenvolvimento deste sistema.
 
 ---
-
 <div align="center">
 
 **[⬆ Voltar ao Topo](#-sistema-de-estoque-enterprise-v60)**

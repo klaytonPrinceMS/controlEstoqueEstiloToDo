@@ -11,7 +11,6 @@ Faça logout ao terminar o uso em computadores compartilhados.
 Seus dados são salvos apenas localmente (navegador/computador).
 
 ---
-
 ## Sumário
 
 1. Como fazer Login  
